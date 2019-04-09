@@ -1,3 +1,9 @@
+## Add a new project
+
+1. run 'make project'
+1. type in project name, title and date of experiment
+
+
 ## Working with git
 
 In short, to contribute:
