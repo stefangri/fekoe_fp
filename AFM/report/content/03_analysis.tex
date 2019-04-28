@@ -1,5 +1,7 @@
 \section{Auswertung}
-
+Nachfolgend werden die gewonnen Messergebnisse dargestellt und nötige Rechnungen durchgeführt.
+Zur Auswertung der AFM Aufnahmen wird die Software \textit{Gwyddion}~\cite{} verwendet. Für weitere
+Rechnungen wird \textit{python} verwendet.
 
 \subsection{Vermessung der Nanostruktur}
 
@@ -35,10 +37,50 @@
   \label{fig: kreise_profil}
 \end{figure}
 
+\subsection{Vermessung CD / DVD}
+Die aufgenommenen AFM Bilder der CD und DVD Oberflächen sind in Abbildung~\ref{fig: cd} einzusehen.
+Die Aufnahmen verfügen über einen schwachen Kontrast und eine schlechte Auflösung. Von einer
+quantitativen Analyse der DVD Abmessungen wird daher abgesehen. Die vorhandene Blue-Ray
+konnte mit dem Aufbau nicht analysiert werden.
+
+In Abbildung~\ref{fig: cd} (a) sind die Linien eingezeichnet, entlang derer die relevanten Abmessungen der
+CD Struktur mit Gwyddion vorgenommen wurden. Es ergeben sich folgende Werte:
+\begin{align}
+  \begin{aligned}
+    \text{Spurbreite: } & F\ua{adh} &\approx \\
+    \text{Spurabstand: } & F\ua{adh}       &\approx \\
+    \text{minimale Pitlänge: } & F\ua{adh}    &\approx \\
+    \text{maximale Pitlänge: } & &\approx
+  \end{aligned}
+\end{align}
+Hieraus kann die Speicherkapazität ermittelt werden. Eine CD hat in etwa eine Fläche von . Mit dem Spurabstand ergibt sich daraus
+eine Länge der Gesamtspur von . Diese Länge geteilt durch dei minimale Bitlänge (halbe minimale Pitlänge) ergibt die Anzahl an Bits .
+Nun muss die \textit{Eight-to-Fourteen}
+Methode beachtet werden um daraus die Speicherkapazität zu bestimmen:
+\begin{equation}
+  \text{CD Speicherkapazität: } \frac{}{14 + 3} \approx.
+\end{equation}
+
+
+\begin{figure}
+  \centering
+  \includegraphics[scale = 1]{../analysis/data/cd/cd_profil.pdf}
+  \caption{}
+  \label{fig: cd}
+\end{figure}
+
 \subsection{Kraft-Abstands-Kurven}
-Abbildung~\ref{fig: force_distance} zeigt zum qualitativen Vergleich der auftretenden Kraft Werte die drei aufgenommenen Kraft-Abstands-Kurven der Proben
+Abbildung~\ref{fig: force_distance} zeigt zum qualitativen Vergleich der drei aufgenommenen Kraft-Abstands-Kurven der Proben
 Edelstahl, DLC und Teflon. Zur Diskussion des generellen Verlaufs einer solchen Kurve, ist in Abbildung~\ref{fig: force_distance_teflon} die Kurve
-für Teflon vergrößert dargestellt und die verschiedenen Bereiche beschriftet.
+für Teflon vergrößert dargestellt und die relevanten Punkte und Bereiche beschriftet.
+\begin{figure}
+  \centering
+  \includegraphics[scale = 1]{../analysis/data/force_distance/force_distance_teflon.pdf}
+  \caption{Kraft-Abstands-Kurve von Teflon mit Markierungen.}
+  \label{fig: force_distance_teflon}
+\end{figure}
+
+
 
 Zur Bestimmung des Elastizitätsmoduls von Teflon werden die Bereiche rechts von dem Snap-in betrachtet. Diese Daten aus den drei Kurven sind
 in Abbildung~\ref{fig: depth} noch einmal aufgetragen, wobei der Ursprung jeweils in den Snap-in Punkt gelegt wurde. Die Daten sind
@@ -63,7 +105,7 @@ In Quelle~\cite{} ist der Wert
 zu finden.
 
 Abschließend kann die maximal wirkende Adhäsionskraft bestimmt werden. Hierzu wird der horzontale
-Abstand zwischen dem Pull-off und Snap-in mit der Federkonstante des Cantilevers multipliziert.
+Abstand zwischen dem Pull-off und Snap-in mit der Federkonstante des Cantilevers multipliziert (gemäß des Hooke'schen Gesetzes).
 Für die drei Proben ergeben sich die folgenden Werte:
 \begin{align}
   \begin{aligned}
@@ -73,10 +115,6 @@ Für die drei Proben ergeben sich die folgenden Werte:
   \end{aligned}
 \end{align}
 
-
-
-    \the\textwidth
-    \the\textheight
 \begin{figure}
   \centering
   \includegraphics[scale = 1]{../analysis/data/force_distance/force_distance.pdf}

@@ -21,7 +21,7 @@ rcParams['text.latex.preamble'] = r'\usepackage[math-style=ISO,bold-style=ISO,sa
 #rcParams['text.latex.preamble'] = r'\DeclareSIUnit{\counts}{Counts}'
 rcParams['axes.formatter.use_mathtext'] = True
 rcParams['legend.fontsize'] = 10
-rcParams['figure.figsize'] =  5.906, 10
+rcParams['figure.figsize'] =  5.906, 3
 rcParams['savefig.dpi'] = 300
 
 
@@ -103,8 +103,8 @@ snapin[0] *= (20 / 75)
 zero, cov = curve_fit(lambda x, c: [c for i in x], d_t[d_t < 0.5], F_t[d_t < 0.5])
 np.savetxt('teflon_repulsive.txt', np.column_stack([d_t_f[d_t_f > snapin[0]], F_t_f[d_t_f > snapin[0]]]))
 
-
-ax3 = fig.add_subplot(313, sharex = ax1)
+fig = plt.figure()
+ax3 = fig.add_subplot(111)
 
 ax3.axhline(y = zero, color = 'grey', linestyle = '--', label = 'Ruhelage')
 ax3.plot(*pulloff, 'ro', label = 'Pull off')
@@ -112,9 +112,11 @@ ax3.plot(*snapin, 'go', label = 'Snap in')
 
 ax3.plot(d_t_f, F_t_f, label = 'Vor')
 ax3.plot(d_t_b, F_t_b, label = 'Zurück')
-ax3.text(0.01 , 0.96, r'(c) Teflon', horizontalalignment='left', verticalalignment='top', transform = ax3.transAxes)
+#ax3.text(0.01 , 0.96, r'(c) Teflon', horizontalalignment='left', verticalalignment='top', transform = ax3.transAxes)
 ax3.set_xlabel('Verschiebung $x / \si{\micro\meter}$')
+ax3.set_ylabel(r'Spannung $/ \si{\volt}$')
+ax3.text(3.2, -0.2, 'Kontakt')
 
-#ax3.legend(loc = (0.2, 0.6))
+ax3.legend()
 fig.tight_layout()
-plt.savefig('force_distance_2.pdf', bbox_inches = 'tight', pad_inches = 0)
+plt.savefig('force_distance_teflon.pdf', bbox_inches = 'tight', pad_inches = 0)
