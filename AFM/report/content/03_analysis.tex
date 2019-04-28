@@ -1,9 +1,35 @@
 \section{Auswertung}
 Nachfolgend werden die gewonnen Messergebnisse dargestellt und nötige Rechnungen durchgeführt.
-Zur Auswertung der AFM Aufnahmen wird die Software \textit{Gwyddion}~\cite{} verwendet. Für weitere
-Rechnungen wird \textit{python} verwendet.
+Zur Auswertung der AFM Aufnahmen wird die Software \textit{Gwyddion}~\cite{} verwendet.
 
 \subsection{Vermessung der Nanostruktur}
+Zur Umrechnung zwischen Spannung am Piezo und Auslenkung wird nachfolgend der Faktor
+$\SI{155}{\nano\meter \per \volt}$ benutzt.
+Das aufgenommene Bild der Linienstruktur ist in Abbildung~\ref{fig: linien_profil}(a) dargestellt. Hieraus wurde
+das Profil in Abbildung~(b) entnommen. Das Bild und auch das Profil zeigen deutlich einen gemessenen
+Höhengradienten entlang beider Scan Richtungen. Zur Vermessung der Nanostruktur und auch zur Quantifizierung
+dieses Höhengradienten wird wie folgt vorgegangen. Die Daten des Höhenprofils werden gemäß der
+eingezeichneten vertikalen Linien in~\ref{fig: linien_profil}(b) jeweils dem oberen und unterem
+Niveau der Struktur zugeordnet. Es werden nur Datenpunkte außerhalb der grau hinterlegten Bereiche verwendet.
+Für beide Niveaus kann dann eine lineare Regression berechnet werden.
+Die Steigungen beträgt in beiden Fällen ca. $\SI{10}{\nano\meter\per\micro\meter}$. Die Differenz
+der Ordinatenabschnitte und damit die Höhe $h$ der Struktur ergibt sich zu
+\begin{equation}
+  h\ua{Linie} = \SI{0.113(5)}{\micro\meter}
+\end{equation}
+und weicht damit um ca. $\SI{13}{\percent}$ von der Herstellerangabe ($\SI{0.1}{\micro\meter}$) ab. Aus den Abständen der eingezeichneten
+Linien in~\ref{fig: linien_profil}(b) kann der Strukturabstand $s$ zu
+\begin{equation}
+  s\ua{Linien} = \SI{5.03(9)}{\micro\meter}
+\end{equation}
+bestimmt werden, was einer Abweichung von etwa $\SI{0.6}{\percent}$ zur Angabe $\SI{5}{\micro\meter}$ entspricht.
+
+Analog wird für die Quadratstruktur vorgegangen. Das AFM Bild, sowie ein horizontales und vertikales Profil sind
+in Abbildung~\ref{fig: quadrate_profil} einzusehen. Es zeigt sich ein deutlicher Unterschied zwischen den Profilen.
+Da das vertikale Profil (c) wesentlich stärker verrauscht ist, kann von einer schlechteren Auflösung des Systems
+entlang der $y$-Richtung ausgegangen werden. Dies könnte an der Hysterese des zugehörigen Piezos liegen oder an
+einer asymmetrischen Caantilever-Spitze.
+
 
 
 
@@ -70,17 +96,41 @@ Methode beachtet werden um daraus die Speicherkapazität zu bestimmen:
 \end{figure}
 
 \subsection{Kraft-Abstands-Kurven}
+Zur Berechnung der Kraft aus gemessenen Abständen, ist zunächst die Federkonstante des Cantilvers zu bestimmen. Diese kann
+aus seiner Geometrie und Elastizität gemäß
+\begin{equation}
+  k = \frac{E \, b \, h^3}{4 \, l^3}
+\end{equation}
+berechnet werden. Mit der Höhe $h = \SI{2}{\micro\meter}$, Breite $b = \SI{50}{\micro\meter}$, Länge $l = \SI{450}{\micro\meter}$
+des Cantilevers, die aus dem Datenblatt~\cite{cantilever} entnommen wurden, und dem Elastizitätsmodul $E = \SI{160}{\giga\pascal}$~\cite{emodulsi}
+ergibt sich
+\begin{equation}
+  k = \SI{0.2}{\newton \per \meter}.
+\end{equation}
+Der Wert deckt sich mit Wert aus \cite{cantilever} und wird im Folgenden verwendet.
+
 Abbildung~\ref{fig: force_distance} zeigt zum qualitativen Vergleich der drei aufgenommenen Kraft-Abstands-Kurven der Proben
-Edelstahl, DLC und Teflon. Zur Diskussion des generellen Verlaufs einer solchen Kurve, ist in Abbildung~\ref{fig: force_distance_teflon} die Kurve
+Edelstahl, DLC und Teflon. Der Name Kraft-Distanz-Kurve wird verwendet, obwohl in den Plots die Differenzspannung der Photodiode
+gegen das Spannungssignal des Piezos in $z$-Richtung aufgetragen ist. Die Spannung am Piezo wird, wie vom Hersteller in~\cite{afm_datasheet}
+vorgeschlagen, mit dem Faktor $20 / 75 \si{\micro\meter\per\volt}$ in die Ausdehnung des Piezos umgerechnet.
+Zur Diskussion des generellen Verlaufs einer solchen Kurve, ist in Abbildung~\ref{fig: force_distance_teflon} die Kurve
 für Teflon vergrößert dargestellt und die relevanten Punkte und Bereiche beschriftet.
+\begin{figure}
+  \centering
+  \includegraphics[scale = 1]{../analysis/data/force_distance/force_distance.pdf}
+  \caption{Vergleich der drei aufgenommenen Kraft-Distanz-Kurven.}
+  \label{fig: force_distance}
+\end{figure}
 \begin{figure}
   \centering
   \includegraphics[scale = 1]{../analysis/data/force_distance/force_distance_teflon.pdf}
   \caption{Kraft-Abstands-Kurve von Teflon mit Markierungen.}
   \label{fig: force_distance_teflon}
 \end{figure}
-
-
+Der Pull-off Punkt ist deutlich zu erkennen, während der Snap-in nicht stark ausgeprägt ist. Hierfür wird
+jeweils der Punkt vor dem Anstieg der Kurve beim Annähern von Spitze und Probe festgelegt. Zudem fällt auf, dass
+die Kurve beim Entfernen von Spitze und Probe im Bereich des Kontaktes oberhalb verläuft. Dies ist auf die
+Hysterese des Piezos zurückzuführen.
 
 Zur Bestimmung des Elastizitätsmoduls von Teflon werden die Bereiche rechts von dem Snap-in betrachtet. Diese Daten aus den drei Kurven sind
 in Abbildung~\ref{fig: depth} noch einmal aufgetragen, wobei der Ursprung jeweils in den Snap-in Punkt gelegt wurde. Die Daten sind
@@ -98,7 +148,7 @@ Gemäß Formel~\eqref{} kann daraus das Elastizitätsmodul $E$ gewonnen werden.
 \begin{equation}
   \text{(a): } E \approx \SI{120}{\mega \pascal} \quad \text{und (b): } E \approx \SI{260}{\mega \pascal}.
 \end{equation}
-In Quelle~\cite{} ist der Wert
+In Quelle~\cite{emodulteflon} ist der Wert
 \begin{equation}
   E\ua{lit} = \SI{420}{\mega \pascal}
 \end{equation}
@@ -114,10 +164,3 @@ Für die drei Proben ergeben sich die folgenden Werte:
     \text{Teflon: } & F\ua{adh}    &\approx
   \end{aligned}
 \end{align}
-
-\begin{figure}
-  \centering
-  \includegraphics[scale = 1]{../analysis/data/force_distance/force_distance.pdf}
-  \caption{Vergleich der drei aufgenommenen Kraft-Distanz-Kurven.}
-  \label{fig: force_distance}
-\end{figure}
