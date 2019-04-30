@@ -72,7 +72,7 @@ ax1.set_xlim(x1[0], x1[-8])
 ax1.set_xlabel(r'Position $x / \si{\micro\meter}$ ')
 ax1.set_ylabel('Höhe $y / \si{\micro\meter}$')
 ax1.legend(loc = 'lower right')
-ax1.text(0.01 , 0.96, r'(b)', horizontalalignment='left', verticalalignment='top', transform = ax1.transAxes)
+ax1.text(0.01 , 0.96, r'(c)', horizontalalignment='left', verticalalignment='top', transform = ax1.transAxes)
 
 featurex, featurey = np.genfromtxt('features1_kreise_profile.txt', unpack = True)
 featurex *= 1e6
@@ -144,7 +144,7 @@ ax2.plot(x2, y2, label = 'Profil vertikal')
 ax2.set_xlim(x2[0], x2[-8])
 ax2.set_xlabel(r'Position $x / \si{\micro\meter}$ ')
 ax2.legend(loc = 'lower right')
-ax2.text(0.01 , 0.96, r'(c)', horizontalalignment='left', verticalalignment='top', transform = ax2.transAxes)
+ax2.text(0.01 , 0.96, r'(d)', horizontalalignment='left', verticalalignment='top', transform = ax2.transAxes)
 #ax2.set_ylabel('Höhe $y / \si{\micro\meter}$')
 
 
@@ -158,6 +158,7 @@ steps = horizontal_dist[1::2]
 mean_gap = ufloat(np.mean(gaps), np.std(gaps))
 mean_step = ufloat(np.mean(steps), np.std(steps))
 structure_distance = mean_gap + mean_step
+print('vertikal')
 print(mean_gap)
 print(mean_step)
 print(structure_distance)

@@ -3,6 +3,7 @@ Nachfolgend werden die gewonnen Messergebnisse dargestellt und nötige Rechnunge
 Zur Auswertung der AFM Aufnahmen wird die Software \textit{Gwyddion}~\cite{} verwendet.
 
 \subsection{Vermessung der Nanostruktur}
+
 Zur Umrechnung zwischen Spannung am Piezo und Auslenkung wird nachfolgend der Faktor
 $\SI{155}{\nano\meter \per \volt}$ benutzt.
 Das aufgenommene Bild der Linienstruktur ist in Abbildung~\ref{fig: linien_profil}(a) dargestellt. Hieraus wurde
@@ -23,16 +24,6 @@ Linien in~\ref{fig: linien_profil}(b) kann der Strukturabstand $s$ zu
   s\ua{Linien} = \SI{5.03(9)}{\micro\meter}
 \end{equation}
 bestimmt werden, was einer Abweichung von etwa $\SI{0.6}{\percent}$ zur Angabe $\SI{5}{\micro\meter}$ entspricht.
-
-Analog wird für die Quadratstruktur vorgegangen. Das AFM Bild, sowie ein horizontales und vertikales Profil sind
-in Abbildung~\ref{fig: quadrate_profil} einzusehen. Es zeigt sich ein deutlicher Unterschied zwischen den Profilen.
-Da das vertikale Profil (c) wesentlich stärker verrauscht ist, kann von einer schlechteren Auflösung des Systems
-entlang der $y$-Richtung ausgegangen werden. Dies könnte an der Hysterese des zugehörigen Piezos liegen oder an
-einer asymmetrischen Caantilever-Spitze.
-
-
-
-
 \begin{figure}
   \centering
   \includegraphics[scale = 1]{../analysis/data/nanostruktur_linien/linien_profil.pdf}
@@ -43,8 +34,26 @@ einer asymmetrischen Caantilever-Spitze.
   \label{fig: linien_profil}
 \end{figure}
 
-
-
+Analog wird für die Quadratstruktur vorgegangen. Das AFM Bild, sowie ein horizontales und vertikales Profil sind
+in Abbildung~\ref{fig: quadrate_profil} einzusehen. Es zeigt sich ein deutlicher Unterschied zwischen den Profilen.
+Da das vertikale Profil (c) wesentlich stärker verrauscht ist, kann von einer schlechteren Auflösung des Systems
+entlang der $y$-Richtung ausgegangen werden. Dies könnte an der Hysterese des zugehörigen Piezos liegen oder an
+einer asymmetrischen Cantilever-Spitze. Da die fehlerhafte Messung der Struktur insbesondere an den Stufen der Struktur
+auftritt, wird im Fall der vertikalen Linien ein größerer Bereich der Daten nicht verwendet (siehe
+Abbildung~\ref{fig: quadrate_profil} (c)). Die gemessene Steigung des horizontalen Profils beträgt ca.
+$\SI{8}{\nano\meter\per\micro\meter}$, die des vertikalen Profils ca. $\SI{5}{\nano\meter\per\micro\meter}$.
+Aus dem horizontalen Profil ergibt sich für Strukturabstand und Höhe:
+\begin{equation}
+  h\ua{Quadrate} = \SI{0.1013(6)}{\micro\meter}, \quad s\ua{Quadrate} = \SI{9.62(9)}{\micro\meter}.
+\end{equation}
+Aus dem vertikalen Profil:
+\begin{equation}
+  h\ua{Quadrate} = \SI{0.0970(9)}{\micro\meter}, \quad s\ua{Quadrate} = \SI{10.004(9)}{\micro\meter}.
+\end{equation}
+Es ist somit zu beobachten, dass die gemessene Höhe und der Strukturabstand anhand des vertikalen Profils mit einer
+Abweichung von $3$ bzw. $\SI{4}{\percent}$ näher an den Herstellerangaben liegen. Dies spricht dafür, dass
+die Umrechnung zwischen Piezospannung und Verschiebungsstrecke, für $x$-(etwa entlang horizontalem Profil) und $y$-Richtung (etwa
+entlang vertikalem Profil) unterschiedlich sind oder dass asymmetrische thermische Drifts und andere Störeinflüsse auftreten.
 \begin{figure}
   \centering
   \includegraphics[scale = 1]{../analysis/data/nanostruktur_quadrate/quadrate_profile.pdf}
@@ -54,6 +63,8 @@ einer asymmetrischen Caantilever-Spitze.
   \label{fig: quadrate_profil}
 \end{figure}
 
+Das Ergebnis der Messung an den Kreisstrukturen ist in Abbildung~\ref{fig: kreise_profil} dargestellt. In Teil (b)
+ist eine Aufnahme ohne (...) zu sehen. Der Vergleich mit Abbildungsteil (a) zeigt den Einfluss der (...)Kontrolle.
 
 
 \begin{figure}
@@ -164,3 +175,10 @@ Für die drei Proben ergeben sich die folgenden Werte:
     \text{Teflon: } & F\ua{adh}    &\approx
   \end{aligned}
 \end{align}
+
+\begin{figure}
+  \centering
+  \includegraphics[scale = 1]{../analysis/data/force_distance/eindringtiefe.pdf}
+  \caption{}
+  \label{fig: depth}
+\end{figure}

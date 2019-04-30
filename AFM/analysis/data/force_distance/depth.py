@@ -45,6 +45,7 @@ ax1 = fig.add_subplot(131)
 
 ax1.plot(xt, yt , label = 'Teflon')
 ax1.plot(xes[xes <= xt[-1]], yes[xes <= xt[-1]], label = 'Edelstahl', color = 'g')
+ax1.set_ylabel(r'Differenzspannung / \si{\volt}')
 
 depth = xt[-1] - (xes[yes <= yt[-1]])[-1]
 ax1.axvline(x = xt[-1], color = 'grey', linestyle = '--')
