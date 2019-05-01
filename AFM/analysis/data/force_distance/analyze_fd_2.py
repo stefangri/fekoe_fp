@@ -116,6 +116,7 @@ ax3.plot(d_t_b, F_t_b, label = 'Zurück')
 ax3.set_xlabel('Verschiebung $x / \si{\micro\meter}$')
 ax3.set_ylabel(r'Spannung $/ \si{\volt}$')
 ax3.text(3.2, -0.2, 'Kontakt')
+ax3.text(0.5, -0.3, 'kein Kontakt')
 
 ax3.legend()
 fig.tight_layout()
