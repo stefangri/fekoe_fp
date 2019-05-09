@@ -70,7 +70,10 @@
 %\usepackage{microtype}
 
 \usepackage[
-  backend=biber,
+  backend=biber,   % use modern biber backend
+  autolang=hyphen,  % load hyphenation rules for if language of bibentry is not % in the references.bib use langid={en} for english sources
+  sortcites = none,
+  sorting = none,
 ]{biblatex}
 % Quellendatenbank
 \addbibresource{lit.bib}
