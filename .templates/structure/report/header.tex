@@ -21,12 +21,21 @@
 
 
 \usepackage[autostyle]{csquotes}
-
+\setdefaultlanguage{german}
 \usepackage[
   locale=DE,                   % deutsche Einstellungen
   separate-uncertainty=true,   % Immer Fehler mit \pm
   per-mode=symbol-or-fraction, % m/s im Text, sonst Brüche
 ]{siunitx}
+
+% von Julian eingefügt, weil der immer autoref benutzt
+\AtBeginDocument{%
+  \newcaptionname{ngerman}{\figureautorefname}{Abbildung}
+  \newcaptionname{ngerman}{\tableautorefname}{Tabelle}
+  \newcaptionname{ngerman}{\sectionautorefname}{Kapitel}
+  \newcaptionname{ngerman}{\subsectionautorefname}{Kapitel}
+  \newcaptionname{ngerman}{\chapterautorefname}{Kapitel}%
+}
 
 \usepackage{xfrac}
 
@@ -41,6 +50,8 @@
 %\usepackage{subfig}
 
 \usepackage{graphicx}
+
+\usepackage{sidecap}  % von julian für sidecaptionseingefügt
 
 \usepackage{float}
 \floatplacement{figure}{h}
@@ -59,7 +70,10 @@
 %\usepackage{microtype}
 
 \usepackage[
-  backend=biber,
+  backend=biber,   % use modern biber backend
+  autolang=hyphen,  % load hyphenation rules for if language of bibentry is not % in the references.bib use langid={en} for english sources
+  sortcites = none,
+  sorting = none,
 ]{biblatex}
 % Quellendatenbank
 \addbibresource{lit.bib}
