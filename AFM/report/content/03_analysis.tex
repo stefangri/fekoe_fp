@@ -126,12 +126,27 @@ dass nicht die volle mögliche Speicherkapazität genutzt werden kann, welche hi
 zu einem fehlerhaften Ergebnis führen. Bei der Vermessung der Quadrate wurden in $x$-Richtung bereits zu kleine Strukturwerte gemessen. Dies spricht dafür,
 dass der hier gemessene Spurabstand zu klein ist. Dies führt zu einer erhöhten Speicherkapazität.
 
+In Abbildung~\ref{fig: cd_korrektur} sind die Darstellungen aus Abbildung~\ref{fig: cd} erneut dargestellt, wobei hier der
+Höhengradient mittels \emph{gwyddion} korrigiert wurde. Die AFM
+Bilder der CD und DVD aus~\ref{fig: cd_korrektur}(a) und (c) verfügen daher zwar über einen höheren Kontrast, jedoch
+scheint sich die Genauigkeit, mit der die Strukturgrößen abgelesen werden können, zu verschlechtern, siehe~\ref{fig: cd_korrektur}(b).
+Ein erneutes Ablesen der Spurbreiten wird hier daher nicht durchgeführt.
+
 \begin{figure}
   \centering
   \includegraphics[scale = 1]{../analysis/data/cd/cd_profil.pdf}
   \caption{(a) AFM Aufnahme der CD mit eingezeichneten Längen: 1 maximale Pitlänge, 2 minimale Pitlänge,
-  3 Spurabstand, 4 Spurbreite und 5 Profil, das in (b) gezeigt ist. (c) zeigt das Bild der DVD.}
+  3 Spurabstand, 4 Spurbreite und 5 Profil, das in (b) gezeigt ist. (c) zeigt das AFM-Bild der DVD.}
   \label{fig: cd}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[scale = 1]{../analysis/data/cd/cd_profil_korrektur.pdf}
+  \caption{AFM Aufnahmen aus Abbildung~\ref{fig: cd} mit korrigiertem Höhengradienten
+  mittels \emph{gwyddion}. (a) AFM Aufnahme der CD mit eingezeichnetem Profil, das in
+  (b) gezeigt ist. (c) zeigt das AFM-Bild der DVD.}
+  \label{fig: cd_korrektur}
 \end{figure}
 
 \FloatBarrier
@@ -189,7 +204,11 @@ Es ergeben sich die Werte
 \begin{equation}
   \text{(a): } \delta \approx \SI{0.13}{\micro\meter} \quad \text{und (b): }\delta \approx \SI{0.070}{\micro\meter}.
 \end{equation}
-Gemäß Formel~\eqref{eqn:emodul} kann daraus der Elastizitätsmodul $E$ gewonnen werden:
+Gemäß der Formel%~\eqref{eqn:emodul}
+\begin{equation}
+  E =  \frac{k  \pi (z - \delta)    (1 - \nu^2)}{ 2  \tan(\alpha)  \delta^2}
+\end{equation}
+kann daraus (mit $\nu = \num{0.46}$ und $\alpha = \SI{10}{\degree}$) der Elastizitätsmodul $E$ gewonnen werden:
 \begin{equation}
   \text{(a): } E \approx \SI{120}{\mega \pascal} \quad \text{und (b): } E \approx \SI{260}{\mega \pascal}.
 \end{equation}
@@ -220,7 +239,9 @@ Für die drei Proben ergeben sich die folgenden Werte:
     \text{Teflon: } & F\ua{adh}    &\approx \SI{100}{\nano\newton}.
   \end{aligned}
 \end{align}
-Alle Werte liegen in der gleichen Größenordnung $\sim \SI{100}{\nano\newton}$. Äußere Einflüsse, wie vorherrschende Luftfeuchtigkeit,
+Alle Werte liegen in der gleichen Größenordnung $\sim \SI{100}{\nano\newton}$.
+In Quelle~\cite{afm_datasheet} lässt sich für Edelstahl unter Verwendung einer gleichwertigen Spitze der Wert $\SI{75}{\nano\newton}$ finden.
+Äußere Einflüsse, wie vorherrschende Luftfeuchtigkeit,
 die Hysterese der Piezos oder der Spitzenradius können nicht quantifiziert werden. Da aber alle Werte mit der gleichen Spitze und in kurz aufeinander
 folgenden Zeiten gemessen wurden, kann zumindest davon ausgegangen werden, dass die Messwerte vergleichbar sind. Es lässt sich also feststellen, dass die
 Adhäsionskraft bei der DLC Probe am höchsten ist.

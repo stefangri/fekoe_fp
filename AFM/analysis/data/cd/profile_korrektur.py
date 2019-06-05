@@ -27,6 +27,7 @@ rcParams['savefig.dpi'] = 300
 x1, y1 = np.genfromtxt('cd_profile_korrektur.txt', unpack = True)
 x1 *= 1e6
 y1 *= 1e6
+y1 -= min(y1) + 0.06
 
 fig = plt.figure()
 
