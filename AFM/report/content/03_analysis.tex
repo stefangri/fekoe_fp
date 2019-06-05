@@ -1,20 +1,20 @@
 \section{Auswertung}
-Nachfolgend werden die gewonnen Messergebnisse dargestellt und nötige Rechnungen durchgeführt.
+Nachfolgend werden die gewonnenen Messergebnisse dargestellt und nötige Rechnungen durchgeführt.
 Zur Auswertung der AFM Aufnahmen wird die Software \textit{Gwyddion} verwendet.
 
 \FloatBarrier
-\subsection{Vermessung der Nanostruktur}
+\subsection{Vermessung der Mikrostruktur}
 
 Zur Umrechnung zwischen Spannung am Piezo und Auslenkung wird nachfolgend der Faktor
 $\SI{155}{\nano\meter \per \volt}$ benutzt.
 Das aufgenommene Bild der Linienstruktur ist in Abbildung~\ref{fig: linien_profil}(a) dargestellt. Hieraus wurde
-das Profil in Abbildung~(b) entnommen. Das Bild und auch das Profil zeigen deutlich einen gemessenen
-Höhengradienten entlang beider Scan Richtungen. Zur Vermessung der Nanostruktur und auch zur Quantifizierung
+das Profil in Abbildung~\ref{fig: linien_profil}(b) entnommen. Das Bild und auch das Profil zeigen deutlich einen gemessenen
+Höhengradienten entlang beider Scan Richtungen. Zur Vermessung der Mikrostruktur und auch zur Quantifizierung
 dieses Höhengradienten wird wie folgt vorgegangen. Die Daten des Höhenprofils werden gemäß der
 eingezeichneten vertikalen Linien in~\ref{fig: linien_profil}(b) jeweils dem oberen und unterem
 Niveau der Struktur zugeordnet. Es werden nur Datenpunkte außerhalb der grau hinterlegten Bereiche verwendet.
 Für beide Niveaus kann dann eine lineare Regression berechnet werden.
-Die Steigungen beträgt in beiden Fällen ca. $\SI{10}{\nano\meter\per\micro\meter}$. Die Differenz
+Die Steigung beträgt in beiden Fällen ca. $\SI{10}{\nano\meter\per\micro\meter}$. Die Differenz
 der Ordinatenabschnitte und damit die Höhe $h$ der Struktur ergibt sich zu
 \begin{equation}
   h\ua{Linie} = \SI{0.113(5)}{\micro\meter}
@@ -28,10 +28,10 @@ bestimmt werden, was einer Abweichung von etwa $\SI{0.6}{\percent}$ zur Angabe $
 \begin{figure}
   \centering
   \includegraphics[scale = 1]{../analysis/data/nanostruktur_linien/linien_profil.pdf}
-  \caption{Ergebnis der Messung an dem Linienprofil der Nanostruktur. (a) AFM Aufnahme mit eingezeichneten
-  Linien, enlang derer das Profil in Abbildung (b) aufgenommen wurden. Das Profil ist
+  \caption{Ergebnis der Messung an dem Linienprofil der Mikrostruktur. (a) AFM Aufnahme mit eingezeichneter
+  Linie, enlang der das Profil in Abbildung (b) aufgenommen wurde. Das Profil ist
   über die Breite der in (a) eigezeichneten Balken gemittelt. Zudem sind in (b) die linearen Regressionen
-  an die Datenpunkte eingezeichnet, die dem oberen bzw. unterem Niveau der Nanostruktur zugeordnet wurden.}
+  an die Datenpunkte eingezeichnet, die dem oberen bzw. unterem Niveau der Mikrostruktur zugeordnet wurden.}
   \label{fig: linien_profil}
 \end{figure}
 
@@ -58,7 +58,7 @@ entlang vertikalem Profil) unterschiedlich sind oder dass asymmetrische thermisc
 \begin{figure}
   \centering
   \includegraphics[scale = 1]{../analysis/data/nanostruktur_quadrate/quadrate_profile.pdf}
-  \caption{Ergebnis der Messung an den quadratischen Nanostrukturen. (a) AFM Aufnahme mit eingezeichneten
+  \caption{Ergebnis der Messung an den quadratischen Mikrostrukturen. (a) AFM Aufnahme mit eingezeichneten
   Linien, enlang derer die Profile in Abbildung (b) und (c) aufgenommen wurden. Die Profile sind
   über die Breite der in (a) eigezeichneten Balken gemittelt.}
   \label{fig: quadrate_profil}
@@ -91,7 +91,7 @@ Es zeigt sich zudem wieder eine stärkere Verzerrung der Daten entlang der $y$-V
 \subsection{Vermessung CD / DVD}
 Die aufgenommenen AFM Bilder der CD und DVD Oberflächen sind in Abbildung~\ref{fig: cd} einzusehen.
 Die Aufnahmen verfügen über einen schwachen Kontrast und eine schlechte Auflösung. Von einer
-quantitativen Analyse der DVD Abmessungen wird daher abgesehen. Die vorhandene Blue-Ray
+quantitativen Analyse der DVD Abmessungen wird daher abgesehen. Die vorhandene Blu-Ray
 konnte mit dem Aufbau nicht analysiert werden.
 
 In Abbildung~\ref{fig: cd} (a) sind die Linien eingezeichnet, entlang derer die relevanten Abmessungen der
@@ -112,7 +112,7 @@ Des weiteren ergeben sich folgende Abmessungen der Pits:
     \text{maximale Pitlänge: } &    &\approx \SI{1.622}{\micro\meter}.
   \end{aligned}
 \end{align}
-Hieraus kann die Speicherkapazität ermittelt werden. Eine CD hat in etwa eine Fläche von $\SI{100}{\centi\meter\squared}$. Mit dem Spurabstand
+Hieraus kann die Speicherkapazität ermittelt werden (nach Quelle \cite{afm_datasheet}). Eine CD hat in etwa eine Fläche von $\SI{100}{\centi\meter\squared}$. Mit dem Spurabstand
 $\SI{1.53}{\micro\meter}$ ergibt sich daraus
 eine Länge der Gesamtspur von $\SI{6.5}{\kilo\meter}$. Diese Länge geteilt durch die minimale Bitlänge $\SI{0.24}{\micro\meter}$
 (halbe minimale Pitlänge) ergibt die Anzahl an Bits $\num{2.7e10}$.
@@ -122,7 +122,7 @@ Methode beachtet werden um daraus die Speicherkapazität zu bestimmen:
   \text{CD Speicherkapazität: } \frac{\num{2.7e10}}{14 + 3} \approx \SI{1.6}{GB}.
 \end{equation}
 Die maximale Speicherkapazität von CDs beträgt gewöhnlich $\SI{900}{MB}$. Hierzu muss jedoch die innere Speicherstruktur einer CD beachtet werden, die dazu führt,
-dass nicht die volle mögliche Speicherkapazität genutzt werden kann, welche hier bestimmt wurde. Zudem könnten zu klein gemessene Pitdimensionen
+dass nicht die volle mögliche Speicherkapazität genutzt werden kann, welche hier bestimmt wurde. Zudem könnten die zu klein gemessene Pitdimensionen
 zu einem fehlerhaften Ergebnis führen. Bei der Vermessung der Quadrate wurden in $x$-Richtung bereits zu kleine Strukturwerte gemessen. Dies spricht dafür,
 dass der hier gemessene Spurabstand zu klein ist. Dies führt zu einer erhöhten Speicherkapazität.
 
@@ -155,11 +155,11 @@ Edelstahl, DLC und Teflon. Der Name Kraft-Abstands-Kurve wird verwendet, obwohl 
 gegen das Spannungssignal des Piezos in $z$-Richtung aufgetragen ist. Die Spannung am Piezo wird, wie vom Hersteller in~\cite{afm_datasheet}
 vorgeschlagen, mit dem Faktor $20 / 75 \si{\micro\meter\per\volt}$ in die Ausdehnung des Piezos umgerechnet.
 Die Kurve von der Messung mit Edelstahl weicht im Maximalwert der Differenzspannung deutlich von den anderen beiden Kurven ab. Bei der
-Teflon Kurve ist die Ruhelage weiter nach unten verschoben.
-Im Fall der DLC Probe fällt auf, dass nach dem Pull-off eine Art Überschwingen
+Teflon-Kurve ist die Ruhelage weiter nach unten verschoben.
+Im Fall der DLC-Probe fällt auf, dass nach dem Pull-off eine Art Überschwingen
 des Cantilevers über die Ruhelage stattfindet. Hiebei könnte es sich jedoch auch um wenige fehlerhafte Datenpunkte handeln.
 Zur Diskussion des generellen Verlaufs einer solchen Kurve, ist in Abbildung~\ref{fig: force_distance_teflon} die Kurve
-für Teflon vergrößert dargestellt und die relevanten Punkte und Bereiche beschriftet.
+für Teflon vergrößert dargestellt und die relevanten Punkte und Bereiche sind beschriftet.
 \begin{figure}
   \centering
   \includegraphics[scale = 1]{../analysis/data/force_distance/force_distance.pdf}
@@ -204,8 +204,9 @@ zu finden. Die hier gemessenen Werte liegen also in der gleichen Größenordnung
   \centering
   \includegraphics[scale = 1]{../analysis/data/force_distance/eindringtiefe.pdf}
   \caption{Vergleich der Kraft-Abstands-Kurven zur Bestimmung der Eindringtiefe des Cantilevers in die Teflon Probe.
-  Es jeweils der lineare Kontaktbereich der Kraft-Abstands-Kurven dargestellt, wobei der Ursprung in den Snap-in Punkt
-  gelegt wurde.}
+  Es ist jeweils der lineare Kontaktbereich der Kraft-Abstands-Kurven dargestellt, wobei der Ursprung in den Snap-in-Punkt
+  gelegt wurde. Die gestrichelten Linien in (a) und (b) markieren den horizontalen Abstand zwischen der Teflon.und der Edelstahl- bzw. DLC-Kurve
+  bei der maximalen Differenzspannung der Teflon-Kurve.}
   \label{fig: depth}
 \end{figure}
 
@@ -219,8 +220,8 @@ Für die drei Proben ergeben sich die folgenden Werte:
     \text{Teflon: } & F\ua{adh}    &\approx \SI{100}{\nano\newton}.
   \end{aligned}
 \end{align}
-Alle Werte liegen in der gleichen Größenordnung $\sim \SI{100}{\nano\newton}$. Äußere Einflüsse, wie vorherrschende Luftfeuchtigkeit
-oder die Hysterese der Piezos können nicht quantifiziert werden. Da aber alle Werte mit der gleichen Spitze und in kurz aufeinander
+Alle Werte liegen in der gleichen Größenordnung $\sim \SI{100}{\nano\newton}$. Äußere Einflüsse, wie vorherrschende Luftfeuchtigkeit,
+die Hysterese der Piezos oder der Spitzenradius können nicht quantifiziert werden. Da aber alle Werte mit der gleichen Spitze und in kurz aufeinander
 folgenden Zeiten gemessen wurden, kann zumindest davon ausgegangen werden, dass die Messwerte vergleichbar sind. Es lässt sich also feststellen, dass die
 Adhäsionskraft bei der DLC Probe am höchsten ist.
 \FloatBarrier
