@@ -863,8 +863,8 @@ class spectrum(object):
                       + str(spectrum + 1))
 
             # label the x and y axis
-            plt.ylabel('Scattered light intensity (arb. u.)')
-            plt.xlabel('Raman shift (cm$^{-1}$)')
+            plt.ylabel('Intensität (arb. u.)')
+            plt.xlabel('Wellenlänge (lambda$^{-1}$)')
 
             # save figures
             fig.savefig(self.folder + '/results/plot/fitplot_' + self.labels[spectrum] + '.pdf')
