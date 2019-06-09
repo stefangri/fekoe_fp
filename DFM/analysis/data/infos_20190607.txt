@@ -1,0 +1,17 @@
+Einstellung - Spektrometer: 300 müm Eintrittsspaltbreite, Beugungsgitter: 900 Rillen/mm
+
+Dateiname	Messzeit	Kommentar
+
+sag1		5sec		nanorods, 10% überlapp, Glan-Prisma: 14°
+sag2		5sec		ohne nanorods, dunkelspektrum
+
+sag3		5sec		nanorods
+sag4		"		", mit stärker geschlossener Blenden
+sag5		"		Glan: 104°
+
+sag5b		"		", no glue correction, im höheren Spektralbereich sind die Spektren mit zu hohen Intensitätswerten angegeben
+sag6		"		Glan: 14°
+sag7		"		Dunkelspektrum
+
+sag8		"		nanospheres, Glan 14°, no glue
+sag9 		" 		Dunkelspektrum
