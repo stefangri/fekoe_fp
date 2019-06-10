@@ -8,7 +8,6 @@ import math
 from scipy.optimize import curve_fit
 from pint import UnitRegistry
 import latex as l
-r = l.Latexdocument('results.tex')
 u = UnitRegistry()
 Q_ = u.Quantity
 import os
@@ -38,10 +37,28 @@ rcParams['savefig.dpi'] = 300
 
 import numpy as np
 import matplotlib.pyplot as plt
-from scipy.special import riccati_yn
-from scipy.special import riccati_jn
+#from scipy.special import riccati_yn
+#from scipy.special import riccati_jn
+from scipy.special import spherical_jn
+from scipy.special import spherical_yn
 from scipy.optimize import curve_fit
 from scipy import interpolate
+
+
+def riccati_jn(n, x, derivative = False):
+    if derivative == True:
+        return spherical_jn(n, x, derivative = False) + x * spherical_jn(n, x, derivative = True)
+    else:
+        return x * spherical_jn(n, x, derivative = False)
+
+
+def riccati_yn(n, x, derivative = False):
+    if derivative == True:
+        return (spherical_jn(n, x, derivative = False) + (0 +1j) * spherical_yn(n, x, derivative = False)) + x * (spherical_jn(n, x, derivative = True) + (0 +1j) * spherical_yn(n, x, derivative = True))
+    else:
+        return x * (spherical_jn(n, x, derivative = False) + (0 +1j) * spherical_yn(n, x, derivative = False))
+
+
 
 xlight, ylight = np.genfromtxt(abs_path('data/light_source_spectrum.txt'), unpack = True)
 ylight /= max(ylight) #norm spectrum
@@ -83,13 +100,11 @@ def x(lam, size): #wavelegth dependent parameter for mie scattering function, si
 
 
 def a_n(x, m, n): #first mie coefficient
-    return np.array([(m * riccati_jn(n, m * x)[0][-1] * riccati_jn(n, x)[1][-1] - riccati_jn(n, x)[0][-1] * riccati_jn(n, m * x)[1][-1]) / (m * riccati_jn(n, m * x)[0][-1] * riccati_yn(n, x)[1][-1] - riccati_jn(n, m * x)[1][-1] * riccati_yn(n, x)[0][-1]) for x, m in zip(x, m)])
+    return np.array([(m * riccati_jn(n, m * x) * riccati_jn(n, x, True) - riccati_jn(n, x) * riccati_jn(n, m * x, True)) / (m * riccati_jn(n, m * x) * riccati_yn(n, x, True) - riccati_jn(n, m * x, True) * riccati_yn(n, x)) for x, m in zip(x, m)])
 
 
 def b_n(x, m, n): #second mie coefficient
-    return np.array([(riccati_jn(n, m * x)[0][-1] * riccati_jn(n, x)[1][-1] - m * riccati_jn(n, x)[0][-1] * riccati_jn(n, m * x)[1][-1]) / (riccati_jn(n, m * x)[0][-1] * riccati_yn(n, x)[1][-1] - m * riccati_jn(n, m * x)[1][-1] * riccati_yn(n, x)[0][-1]) for x, m in zip(x, m)])
-
-
+    return np.array([(riccati_jn(n, m * x) * riccati_jn(n, x, True) - m * riccati_jn(n, x) * riccati_jn(n, m * x, True)) / (riccati_jn(n, m * x) * riccati_yn(n, x, True) - m * riccati_jn(n, m * x, True) * riccati_yn(n, x)) for x, m in zip(x, m)])
 
 
 def Q_sc(lam, A, size): #scattering cross section
@@ -107,19 +122,21 @@ def sum_light_mie(lam, A, size, B): #define sum of light source spectrum and mie
     return Q_sc(lam, A, size) + B * light_inter(lam)
 
 
-params1, cov = curve_fit(sum_light_mie, x104[(y104 - ydark) >= 0][::50], (y104 - ydark)[(y104 - ydark) >= 0][::50], p0 = [30, 300, 40], bounds = (0, np.inf))
+params1, cov = curve_fit(sum_light_mie, x104[::20], (y104 - ydark)[::20], p0 = [3, 40, 20], bounds = (0, np.inf))
 params2, cov = curve_fit(lambda lam, B: B * light_inter(lam), x104[(y104 - ydark) >= 0][::50], (y104 - ydark)[(y104 - ydark) >= 0][::50], p0 = [40], bounds = (0, np.inf))
+#params3, cov = curve_fit(sum_light_mie, x14[(y14 - ydark) >= 0][::50], (y14 - ydark)[(y14 - ydark) >= 0][::50], p0 = [3, 25, 20], bounds = (0, np.inf))
 
 
+fig = plt.figure(figsize = (5.906, 4))
+ax = fig.add_subplot(111)
 
-
-plt.plot(x104, (y104 - ydark) , '.', label = '$\phi = 104$', alpha = 0.8, markersize = 0.8)
-plt.plot(lam_plot, params1[-1] * light_inter(lam_plot), label = 'Lichtquelle')
-plt.plot(lam_plot, params2[0] * light_inter(lam_plot), label = 'Nur Lichtquelle')
-plt.plot(lam_plot, Q_sc(lam_plot, *params1[:-1]), 'k-', label = '$Q_{sc}$')
-plt.plot(lam_plot, sum_light_mie(lam_plot, *params1), 'r-', label = 'Fit')
-plt.xlim(lam_plot[0], lam_plot[-1])
-plt.xlabel('Wellenlänge / nm')
-plt.ylabel('Streu-Intensität / a.u.')
-plt.legend()
-plt.savefig(abs_path('results/test.png'))
+ax.plot(x104, (y104 - ydark) , '.', label = '$\phi = 104$', alpha = 0.8, markersize = 0.8)
+ax.plot(lam_plot, params1[-1] * light_inter(lam_plot), label = 'Lichtquelle')
+ax.plot(lam_plot, params2[0] * light_inter(lam_plot), label = 'Nur Lichtquelle')
+ax.plot(lam_plot, Q_sc(lam_plot, *params1[:-1]), 'k-', label = '$Q_{sc}$')
+ax.plot(lam_plot, sum_light_mie(lam_plot, *params1), 'r-', label = 'Fit')
+ax.set_xlim(lam_plot[0], lam_plot[-1])
+ax.set_xlabel('Wellenlänge / nm')
+ax.set_ylabel('Streu-Intensität / a.u.')
+ax.legend()
+fig.savefig(abs_path('results/fit_104.pdf'), bbox_inches = 'tight', pad_inches = 0)
