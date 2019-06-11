@@ -70,19 +70,32 @@ light_inter = interpolate.interp1d(xlight, ylight, kind = 'linear') #interpolate
 l, ref_n, k = np.genfromtxt(abs_path('data/refrective_index.txt'), unpack = True) #data for refrective index
 l *= 1e3 #convert lambda to nanometer
 
-lam_plot = np.linspace(400, 800, 1000) #wavelength array for plots
-
 
 n_inter = interpolate.interp1d(l, ref_n, kind = 'quadratic') #interpolate real part of refrective index
-#plt.plot(lam_plot, n_inter(lam_plot))
-#plt.plot(l, ref_n, 'ro')
-#plt.show()
-
-
 k_inter = interpolate.interp1d(l, k, kind = 'quadratic') #interpolate imaginary part of refrective index
-#plt.plot(lam_plot, k_inter(lam_plot))
-#plt.plot(l, k, 'ro')
-#plt.show()
+
+lam_plot = np.linspace(400, 800, 1000) #wavelength array for plots
+
+fig = plt.figure(figsize = (5.906, 2.5))
+ax1 = fig.add_subplot(121)
+ax1.plot(l[(l >=400) & (l <= 800)], ref_n[(l >=400) & (l <= 800)], '.', label = 'Messwerte')
+ax1.plot(lam_plot, n_inter(lam_plot), label = 'Interpolation')
+ax1.set_xlabel('Wellenlänge')
+ax1.set_ylabel('$n$')
+ax1.set_xlim(lam_plot[0], lam_plot[-1])
+ax1.legend()
+
+ax2 = fig.add_subplot(122)
+ax2.plot(l[(l >=400) & (l <= 800)], k[(l >=400) & (l <= 800)], '.')
+ax2.plot(lam_plot, k_inter(lam_plot))
+ax2.set_xlabel('Wellenlänge')
+ax2.set_ylabel('$k$')
+ax2.set_xlim(lam_plot[0], lam_plot[-1])
+
+fig.tight_layout()
+fig.savefig(abs_path('results/refrective_index.pdf'), bbox_inches = 'tight', pad_inches = 0)
+
+
 
 x104, y104 = np.genfromtxt(abs_path('data/sag5b_0001.txt'), unpack = True) #load spectrum data
 x14, y14 = np.genfromtxt(abs_path('data/sag6_0001.txt'), unpack = True)
