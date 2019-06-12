@@ -7,6 +7,7 @@ from uncertainties import correlated_values
 import math
 from scipy.optimize import curve_fit
 from pint import UnitRegistry
+import matplotlib.gridspec as gridspec
 import latex as l
 u = UnitRegistry()
 Q_ = u.Quantity
@@ -15,11 +16,17 @@ import os
 def abs_path(filename):
     return os.path.join(os.path.dirname(__file__), filename)
 
+def fwhm(lam, Q_sc):
+    max_wl = lam[np.argmax(Q_sc)]
+    half_above = lam[np.argmax(Q_sc):][np.argmin(abs(Q_sc[np.argmax(Q_sc):] - max(Q_sc)/2))]
+    half_below = lam[:np.argmax(Q_sc)][np.argmin(abs(Q_sc[:np.argmax(Q_sc)] - max(Q_sc)/2))]
+    return {'max_I': max(Q_sc), 'max_wl': max_wl, 'lam+': half_above, 'lam-': half_below, 'fwhm': half_above - half_below}
+
 import matplotlib as mlp
 mlp.use('pgf')
 import matplotlib.pyplot as plt
 from matplotlib import rcParams
-
+import matplotlib.image as mpimg
 rcParams['font.family'] = 'serif'
 rcParams['font.serif'] = '[lmroman10-regular]:+tlig;'
 rcParams['text.usetex'] = True
@@ -67,7 +74,8 @@ light_inter = interpolate.interp1d(xlight, ylight, kind = 'linear') #interpolate
 
 
 
-l, ref_n, k = np.genfromtxt(abs_path('data/refrective_index.txt'), unpack = True) #data for refrective index
+#l, ref_n, k = np.genfromtxt(abs_path('data/refrective_index.txt'), unpack = True) #data for refrective index
+k, l, ref_n = np.genfromtxt(abs_path('data/refrective_index2.txt'), unpack = True) #data for refrective index
 l *= 1e3 #convert lambda to nanometer
 
 
@@ -100,7 +108,8 @@ fig.savefig(abs_path('results/refrective_index.pdf'), bbox_inches = 'tight', pad
 x104, y104 = np.genfromtxt(abs_path('data/sag5b_0001.txt'), unpack = True) #load spectrum data
 x14, y14 = np.genfromtxt(abs_path('data/sag6_0001.txt'), unpack = True)
 xdark, ydark = np.genfromtxt(abs_path('data/sag7_0001.txt'), unpack = True)
-
+pic104 = mpimg.imread(abs_path('data/pics/au_röhren_spektrum_02_sag5.png'))
+pic14  = mpimg.imread(abs_path('data/pics/au_röhren_spektrum_02_sag6.png'))
 
 
 N_medium = 1.5 #refrective index of glas (assume k = 0)
@@ -135,21 +144,98 @@ def sum_light_mie(lam, A, size, B): #define sum of light source spectrum and mie
     return Q_sc(lam, A, size) + B * light_inter(lam)
 
 
-params1, cov = curve_fit(sum_light_mie, x104[::20], (y104 - ydark)[::20], p0 = [3, 40, 20], bounds = (0, np.inf))
-params2, cov = curve_fit(lambda lam, B: B * light_inter(lam), x104[(y104 - ydark) >= 0][::50], (y104 - ydark)[(y104 - ydark) >= 0][::50], p0 = [40], bounds = (0, np.inf))
-#params3, cov = curve_fit(sum_light_mie, x14[(y14 - ydark) >= 0][::50], (y14 - ydark)[(y14 - ydark) >= 0][::50], p0 = [3, 25, 20], bounds = (0, np.inf))
 
+params104, cov   = curve_fit(sum_light_mie, x104[::20], (y104 - ydark)[::20], p0 = [3, 40, 20], bounds = (0, np.inf))
+paramslight, cov = curve_fit(lambda lam, B: B * light_inter(lam), x104[::20], (y104 - ydark)[::20], p0 = [40], bounds = (0, np.inf))
+print(params104[1])
 
-fig = plt.figure(figsize = (5.906, 4))
-ax = fig.add_subplot(111)
+fig = plt.figure(figsize = (5.906, 4 * 1.5))
+spec = gridspec.GridSpec(ncols=2, nrows=3, figure=fig)
+axpic104 = fig.add_subplot(spec[0, 0])
+axpic104.text(0.01 , 0.96, r'(a) $\phi = \SI{104}{\degree}$', horizontalalignment='left', verticalalignment='top', transform = axpic104.transAxes, color = 'white')
+axpic104.imshow(pic104)
+axpic104.set_yticks([])
+axpic104.set_xticks([])
 
-ax.plot(x104, (y104 - ydark) , '.', label = '$\phi = 104$', alpha = 0.8, markersize = 0.8)
-ax.plot(lam_plot, params1[-1] * light_inter(lam_plot), label = 'Lichtquelle')
-ax.plot(lam_plot, params2[0] * light_inter(lam_plot), label = 'Nur Lichtquelle')
-ax.plot(lam_plot, Q_sc(lam_plot, *params1[:-1]), 'k-', label = '$Q_{sc}$')
-ax.plot(lam_plot, sum_light_mie(lam_plot, *params1), 'r-', label = 'Fit')
+axpic14 = fig.add_subplot(spec[0, 1])
+axpic14.text(0.01 , 0.96, r'(b) $\phi = \SI{14}{\degree}$', horizontalalignment='left', verticalalignment='top', transform = axpic14.transAxes, color = 'white')
+axpic14.imshow(pic14)
+axpic14.set_yticks([])
+axpic14.set_xticks([])
+
+ax = fig.add_subplot(spec[1:, 0])
+
+ax.plot(x104, (y104 - ydark) , '.', label = r'$\phi = \SI{104}{\degree}$', alpha = 0.8, markersize = 0.8)
+ax.plot(lam_plot, Q_sc(lam_plot, *params104[:-1]), 'k-', label = '$Q_{sc}$')
+ax.plot(lam_plot, params104[-1] * light_inter(lam_plot), label = 'Lichtquelle')
+ax.plot(lam_plot, sum_light_mie(lam_plot, *params104), 'r-', label = 'Summe')
+ax.plot(lam_plot, paramslight[0] * light_inter(lam_plot), label = 'Nur Lichtquelle')
 ax.set_xlim(lam_plot[0], lam_plot[-1])
 ax.set_xlabel('Wellenlänge / nm')
 ax.set_ylabel('Streu-Intensität / a.u.')
 ax.legend()
-fig.savefig(abs_path('results/fit_104.pdf'), bbox_inches = 'tight', pad_inches = 0)
+#fig.savefig(abs_path('results/fit_104.pdf'), bbox_inches = 'tight', pad_inches = 0)
+
+
+
+params14, cov    = curve_fit(sum_light_mie, x14[::20], (y14 - ydark)[::20], p0 = [3, 80, 30], bounds = (0, np.inf))
+paramslight, cov = curve_fit(lambda lam, B: B * light_inter(lam), x14[::20], (y14 - ydark)[::20], p0 = [40], bounds = (0, np.inf))
+print(params14[1])
+
+#fig = plt.figure(figsize = (5.906, 4))
+ax2 = fig.add_subplot(spec[1:, 1], sharey = ax)
+
+ax2.plot(x14, (y14 - ydark) , '.', label = r'$\phi = \SI{14}{\degree}$', alpha = 0.8, markersize = 0.8)
+ax2.plot(lam_plot, params14[-1] * light_inter(lam_plot))
+ax2.plot(lam_plot, paramslight[0] * light_inter(lam_plot))
+ax2.plot(lam_plot, Q_sc(lam_plot, *params14[:-1]), 'k-')
+ax2.plot(lam_plot, sum_light_mie(lam_plot, *params14), 'r-')
+ax2.set_xlim(lam_plot[0], lam_plot[-1])
+ax2.set_xlabel('Wellenlänge / nm')
+#ax2.set_ylabel('Streu-Intensität / a.u.')
+ax2.legend(loc = 'upper right')
+fig.savefig(abs_path('results/fit_14_104.pdf'), bbox_inches = 'tight', pad_inches = 0)
+
+
+
+
+fig = plt.figure(figsize = (5.906, 2.5))
+ax = fig.add_subplot(111)
+
+peak_info_14 = fwhm(lam_plot, Q_sc(lam_plot, *params14[:-1]))
+peak_info_104 = fwhm(lam_plot, Q_sc(lam_plot, *params104[:-1]))
+
+ax.plot(lam_plot, Q_sc(lam_plot, *params14[:-1]), label = r'$Q_{sc}, \phi = \SI{14}{\degree}$', color = 'b')
+ax.plot([peak_info_14['lam-'], peak_info_14['lam+']], [peak_info_14['max_I']/2, peak_info_14['max_I']/2], 'b--')
+ax.plot(lam_plot, Q_sc(lam_plot, *params104[:-1]), label = r'$Q_{sc}, \phi = \SI{104}{\degree}$', color = 'r')
+ax.plot([peak_info_104['lam-'], peak_info_104['lam+']], [peak_info_104['max_I']/2, peak_info_104['max_I']/2], 'r--')
+ax.set_xlim(lam_plot[0], lam_plot[-1])
+ax.set_xlabel('Wellenlänge / nm')
+ax.set_ylabel('Streu-Intensität / a.u.')
+ax.legend()
+fig.savefig(abs_path('results/compare_14_104.pdf'), bbox_inches = 'tight', pad_inches = 0)
+
+
+
+
+#xspheres, yspheres = np.genfromtxt(abs_path('data/sag8_0001.txt'), unpack = True) #load spectrum data
+#xdark, ydark = np.genfromtxt(abs_path('data/sag9_0001.txt'), unpack = True)
+#yspheres -= 600
+
+#paramsspheres, cov   = curve_fit(sum_light_mie, xspheres[::20], (yspheres)[::20], p0 = [15, 100, 100], bounds = (0, np.inf))
+#paramslight, cov = curve_fit(lambda lam, B: B * light_inter(lam), xspheres[::20], (yspheres)[::20], p0 = [40], bounds = (0, np.inf))
+#
+#
+#fig = plt.figure(figsize = (5.906, 4))
+#ax = fig.add_subplot(111)
+#
+#ax.plot(xspheres, (yspheres) , '.', label = r'$\phi = \SI{14}{\degree}$', alpha = 0.8, markersize = 0.8)
+#ax.plot(lam_plot, paramsspheres[-1] * light_inter(lam_plot) , label = 'Lichtquelle')
+#ax.plot(lam_plot, paramslight[0] * light_inter(lam_plot) , label = 'Nur Lichtquelle')
+#ax.plot(lam_plot, Q_sc(lam_plot, *paramsspheres[:-1]), 'k-', label = '$Q_{sc}$')
+#ax.plot(lam_plot, sum_light_mie(lam_plot, *paramsspheres), 'r-', label = 'Fit')
+#ax.set_xlim(lam_plot[0], lam_plot[-1])
+#ax.set_xlabel('Wellenlänge / nm')
+#ax.set_ylabel('Streu-Intensität / a.u.')
+#ax.legend()
+#fig.savefig(abs_path('results/fit_spheres.pdf'), bbox_inches = 'tight', pad_inches = 0)
