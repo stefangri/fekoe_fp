@@ -86,6 +86,7 @@ lam_plot = np.linspace(400, 800, 1000) #wavelength array for plots
 
 fig = plt.figure(figsize = (5.906, 2.5))
 ax1 = fig.add_subplot(121)
+ax1.text(0.01 , 0.96, r'(a)', horizontalalignment='left', verticalalignment='top', transform = ax1.transAxes, color = 'black')
 ax1.plot(l[(l >=400) & (l <= 800)], ref_n[(l >=400) & (l <= 800)], '.', label = 'Messwerte')
 ax1.plot(lam_plot, n_inter(lam_plot), label = 'Interpolation')
 ax1.set_xlabel('Wellenlänge')
@@ -94,6 +95,7 @@ ax1.set_xlim(lam_plot[0], lam_plot[-1])
 ax1.legend()
 
 ax2 = fig.add_subplot(122)
+ax2.text(0.01 , 0.96, r'(b)', horizontalalignment='left', verticalalignment='top', transform = ax2.transAxes, color = 'black')
 ax2.plot(l[(l >=400) & (l <= 800)], k[(l >=400) & (l <= 800)], '.')
 ax2.plot(lam_plot, k_inter(lam_plot))
 ax2.set_xlabel('Wellenlänge')
@@ -101,7 +103,7 @@ ax2.set_ylabel('$k$')
 ax2.set_xlim(lam_plot[0], lam_plot[-1])
 
 fig.tight_layout()
-fig.savefig(abs_path('results/refrective_index.pdf'), bbox_inches = 'tight', pad_inches = 0)
+fig.savefig(abs_path('results/refrective_index.png'), bbox_inches = 'tight', pad_inches = 0)
 
 
 
@@ -165,6 +167,7 @@ axpic14.set_xticks([])
 
 ax = fig.add_subplot(spec[1:, 0])
 
+ax.text(0.01 , 0.96, r'(c)', horizontalalignment='left', verticalalignment='top', transform = ax.transAxes, color = 'black')
 ax.plot(x104, (y104 - ydark) , '.', label = r'$\phi = \SI{104}{\degree}$', alpha = 0.8, markersize = 0.8)
 ax.plot(lam_plot, Q_sc(lam_plot, *params104[:-1]), 'k-', label = '$Q_{sc}$')
 ax.plot(lam_plot, params104[-1] * light_inter(lam_plot), label = 'Lichtquelle')
@@ -174,7 +177,7 @@ ax.set_xlim(lam_plot[0], lam_plot[-1])
 ax.set_xlabel('Wellenlänge / nm')
 ax.set_ylabel('Streu-Intensität / a.u.')
 ax.legend()
-#fig.savefig(abs_path('results/fit_104.pdf'), bbox_inches = 'tight', pad_inches = 0)
+#fig.savefig(abs_path('results/fit_104.png'), bbox_inches = 'tight', pad_inches = 0)
 
 
 
@@ -184,7 +187,7 @@ print(params14[1])
 
 #fig = plt.figure(figsize = (5.906, 4))
 ax2 = fig.add_subplot(spec[1:, 1], sharey = ax)
-
+ax2.text(0.01 , 0.96, r'(d)', horizontalalignment='left', verticalalignment='top', transform = ax2.transAxes, color = 'black')
 ax2.plot(x14, (y14 - ydark) , '.', label = r'$\phi = \SI{14}{\degree}$', alpha = 0.8, markersize = 0.8)
 ax2.plot(lam_plot, params14[-1] * light_inter(lam_plot))
 ax2.plot(lam_plot, paramslight[0] * light_inter(lam_plot))
@@ -194,7 +197,7 @@ ax2.set_xlim(lam_plot[0], lam_plot[-1])
 ax2.set_xlabel('Wellenlänge / nm')
 #ax2.set_ylabel('Streu-Intensität / a.u.')
 ax2.legend(loc = 'upper right')
-fig.savefig(abs_path('results/fit_14_104.pdf'), bbox_inches = 'tight', pad_inches = 0)
+fig.savefig(abs_path('results/fit_14_104.png'), bbox_inches = 'tight', pad_inches = 0)
 
 
 
@@ -205,6 +208,10 @@ ax = fig.add_subplot(111)
 peak_info_14 = fwhm(lam_plot, Q_sc(lam_plot, *params14[:-1]))
 peak_info_104 = fwhm(lam_plot, Q_sc(lam_plot, *params104[:-1]))
 
+print(peak_info_14)
+print(peak_info_104)
+
+
 ax.plot(lam_plot, Q_sc(lam_plot, *params14[:-1]), label = r'$Q_{sc}, \phi = \SI{14}{\degree}$', color = 'b')
 ax.plot([peak_info_14['lam-'], peak_info_14['lam+']], [peak_info_14['max_I']/2, peak_info_14['max_I']/2], 'b--')
 ax.plot(lam_plot, Q_sc(lam_plot, *params104[:-1]), label = r'$Q_{sc}, \phi = \SI{104}{\degree}$', color = 'r')
@@ -213,29 +220,68 @@ ax.set_xlim(lam_plot[0], lam_plot[-1])
 ax.set_xlabel('Wellenlänge / nm')
 ax.set_ylabel('Streu-Intensität / a.u.')
 ax.legend()
-fig.savefig(abs_path('results/compare_14_104.pdf'), bbox_inches = 'tight', pad_inches = 0)
+fig.savefig(abs_path('results/compare_14_104.png'), bbox_inches = 'tight', pad_inches = 0)
 
 
 
 
-#xspheres, yspheres = np.genfromtxt(abs_path('data/sag8_0001.txt'), unpack = True) #load spectrum data
-#xdark, ydark = np.genfromtxt(abs_path('data/sag9_0001.txt'), unpack = True)
-#yspheres -= 600
+xspheres, yspheres = np.genfromtxt(abs_path('data/sag8_0001.txt'), unpack = True) #load spectrum data
+xdark, ydark = np.genfromtxt(abs_path('data/sag9_0001.txt'), unpack = True)
+
 
 #paramsspheres, cov   = curve_fit(sum_light_mie, xspheres[::20], (yspheres)[::20], p0 = [15, 100, 100], bounds = (0, np.inf))
 #paramslight, cov = curve_fit(lambda lam, B: B * light_inter(lam), xspheres[::20], (yspheres)[::20], p0 = [40], bounds = (0, np.inf))
-#
-#
-#fig = plt.figure(figsize = (5.906, 4))
-#ax = fig.add_subplot(111)
-#
-#ax.plot(xspheres, (yspheres) , '.', label = r'$\phi = \SI{14}{\degree}$', alpha = 0.8, markersize = 0.8)
-#ax.plot(lam_plot, paramsspheres[-1] * light_inter(lam_plot) , label = 'Lichtquelle')
-#ax.plot(lam_plot, paramslight[0] * light_inter(lam_plot) , label = 'Nur Lichtquelle')
-#ax.plot(lam_plot, Q_sc(lam_plot, *paramsspheres[:-1]), 'k-', label = '$Q_{sc}$')
-#ax.plot(lam_plot, sum_light_mie(lam_plot, *paramsspheres), 'r-', label = 'Fit')
-#ax.set_xlim(lam_plot[0], lam_plot[-1])
-#ax.set_xlabel('Wellenlänge / nm')
-#ax.set_ylabel('Streu-Intensität / a.u.')
+
+
+fig = plt.figure(figsize = (5.906, 2.5))
+
+ax = fig.add_subplot(131)
+ax.plot(xspheres, yspheres , '.', alpha = 0.8, markersize = 0.8)
+ax.set_xlim(lam_plot[0], lam_plot[-1])
+ax.text(0.01 , 0.96, r'(a) Nanosphären', horizontalalignment='left', verticalalignment='top', transform = ax.transAxes, color = 'black')
+ax.set_ylabel('Streu-Intensität / a.u.')
 #ax.legend()
-#fig.savefig(abs_path('results/fit_spheres.pdf'), bbox_inches = 'tight', pad_inches = 0)
+
+
+ax2 = fig.add_subplot(132, sharey = ax)
+ax2.plot(xdark, ydark , '.', alpha = 0.8, markersize = 0.8)
+ax2.set_xlim(lam_plot[0], lam_plot[-1])
+ax2.text(0.01 , 0.96, r'(b) Dunkel', horizontalalignment='left', verticalalignment='top', transform = ax2.transAxes, color = 'black')
+ax2.set_xlabel('Wellenlänge / nm')
+#ax2.legend()
+
+
+
+ax3 = fig.add_subplot(133)
+ax3.plot(xspheres, yspheres - ydark, '.', alpha = 0.8, markersize = 0.8)
+ax3.set_xlim(lam_plot[0], lam_plot[-1])
+ax3.text(0.01 , 0.96, r'(c) Differenz', horizontalalignment='left', verticalalignment='top', transform = ax3.transAxes, color = 'black')#, bbox={'facecolor':'white', 'alpha':0.5, 'pad':0, 'edgecolor': None}
+fig.tight_layout()
+fig.savefig(abs_path('results/fit_spheres.png'), bbox_inches = 'tight', pad_inches = 0)
+
+
+
+
+#Plot with CMOS pictures
+fig = plt.figure(figsize = (5.906, 4))
+pics = ['au_röhren_04.png', 'au_röhren_06.png', 'au_röhren_07.png', 'smiley2.png']
+for i in range(4):
+    pic = mpimg.imread(abs_path('data/pics/' + pics[i]))
+    ax = fig.add_subplot(221 + i)
+    ax.text(0.01 , 0.96, f'(' + ['a', 'b', 'c', 'd'][i] + ')', horizontalalignment='left', verticalalignment='top', transform = ax.transAxes, color = 'white')
+    ax.imshow(pic)
+    ax.set_yticks([])
+    ax.set_xticks([])
+fig.savefig(abs_path('results/pics_röhren.png'), bbox_inches = 'tight', pad_inches = 0)
+
+
+fig = plt.figure(figsize = (5.906, 4))
+pics = ['au_sphären_01.png', 'au_sphären_02.png']
+for i in range(len(pics)):
+    pic = mpimg.imread(abs_path('data/pics/' + pics[i]))
+    ax = fig.add_subplot(121 + i)
+    ax.text(0.01 , 0.96, f'(' + ['a', 'b'][i] + ')', horizontalalignment='left', verticalalignment='top', transform = ax.transAxes, color = 'white')
+    ax.imshow(pic)
+    ax.set_yticks([])
+    ax.set_xticks([])
+fig.savefig(abs_path('results/pics_spheres.png'), bbox_inches = 'tight', pad_inches = 0)

@@ -11,9 +11,9 @@ intensity_g = []
 intensity_b = []
 for pic_file in pic_files:
     pics.append(mpimg.imread(pic_file))
-    intensity_r.append(np.mean(pics[-1][:, :313, 0]) * 255)
-    intensity_g.append(np.mean(pics[-1][:, :313, 1]) * 255)
-    intensity_b.append(np.mean(pics[-1][:, :313, 2]) * 255)
+    intensity_r.append(np.mean(pics[-1][:, :, 0]) * 255)
+    intensity_g.append(np.mean(pics[-1][:, :, 1]) * 255)
+    intensity_b.append(np.mean(pics[-1][:, :, 2]) * 255)
 
 #plt.imshow(pics[-1][:, :500, :])
 plt.plot(intensity_r, 'r-') # / max(intensity_r)

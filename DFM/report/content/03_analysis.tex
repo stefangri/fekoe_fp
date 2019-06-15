@@ -1,17 +1,112 @@
 \section{Auswertung}
 
+\subsection{\ce{Au}-Nanoröhren}
+\label{sec: auröhren}
+In den Abbildungen~\ref{fig: au_röhren_bilder} a)-d) sind vier beispielhafte Aufnahmen der
+\ce{Au}-Nanoröhren mit der CMOS-Kamera einzusehen.
+Zudem sind in den Abbildungen~\ref{fig: au_röhren_fits} a) und b) zwei weitere Aufnahmen gezeigt, für die
+ebenfalls ein Spektrum aufgenommen wurde. Hierbei wurde die selbe Stelle der
+Probe einmal mit einer Einstellung des Polarisationsfilter von $\SI{104}{\degree}$
+und einmal von $\SI{14}{\degree}$ (um $\SI{90}{\degree}$ gedreht) aufgenommen.
+Die Spektren sind in Abbildung~\ref{fig: au_röhren_fits} c) und d) gezeigt, wobei
+hier bereits das Spektrum einer Dunkelaufnahme abgezogen wurde. Es ist deutlich zu erkennen, dass
+die maximal Intensität bei der Einstellung von $\SI{14}{\degree}$ höher ist. Die Spektren sollen
+nun quantitativ analysiert werden.
+\begin{figure}
+  \centering
+  \includegraphics[scale = 1]{../analysis/results/pics_röhren.png}
+  \caption{Dunkelfeld Aufnahmen der \ce{Au}-Nanoröhren, aufgenommen mit der CMOS Kamera.}
+  \label{fig: au_röhren_bilder}
+\end{figure}
+
+Zunächst soll der Einfluss von ungestreutem Licht, das in das Spektrometer gelangt ist, untersucht werden.
+Hierzu wird das normierte Spektrum $S(\lambda)$ der Weißlichtquelle (Daten aus~\cite{thorlabs} entnommen)
+mittels des Modells
+\begin{equation}
+  D(\lambda) = A \cdot S(\lambda), \quad A \in R^{+}
+  \label{eq: fit_light}
+\end{equation}
+an die Daten $D(\lambda)$ angepasst. Das Ergebnis für die beiden Spektren ist ebenfalls in den Abbildungen~\ref{fig: au_röhren_fits} c) und d)
+eingezeichnet (grüne Linien). Der Fit macht deutlich, dass die Gestalt der aufgenommenen Spektren
+durch das Licht der Lichtquelle dominiert wird.
+
+Dennoch soll die Kompatibilität mit dem Mie-Modell überprüft werden. Hierzu wird als alternatives Modell zur Beschreibung der
+Daten eine Linearkombination aus dem Spektrum der Lampe und dem Streuquerschnitt $Q_{sc}$ angesetzt
+\begin{equation}
+  D(\lambda) = A \cdot S(\lambda) + B \cdot Q_{sc}(\lambda, d).
+  \label{eq: fit_q_sc}
+\end{equation}
+Der Durchmesser der Nanopartikel $d$ wird hierbei ebenfalls als freier Fit-Parameter zugelassen.
+Für die Funktion ist ebenfalls der Wellenlängen-abhängige komplexe Brechungsindex $n + ik$ von Gold relevant. Hierzu wurden
+Daten aus~\cite{ref_index_au} entnommen und stückweise, quadratisch interpoliert, sodass Werte für alle hier auftretenden Wellenlängen
+vorhanden sind. Die Verläufe der Brechungsindix-Komponenten und die Interpolationen sind in Abbildung~\ref{fig: ref_index}
+dargestellt. Die Fits an das Modell~\eqref{eq: fit_q_sc} sind in Abbildung~\ref{fig: au_röhren_fits} eingezeichnet.
+Für die Durchmesser $d$ ergeben sich für die beiden Polarisationseinstellungen
+\begin{equation}
+  d_{104} \approx \SI{90}{\nano\meter}, \quad d_{14} \approx \SI{101}{\nano\meter}.
+\end{equation}
+Nach~\cite{anleitung} haben die Nanoröhren eine Ausdehnung von $\SI{}{\nano\meter}$.
+In Abbildung~\ref{fig: compare_q_sc} sind die Komponenten~$Q_{sc}(\lambda, d)$ der Fits zum Vergleich erneut aufgetragen. Hier sind ebenfalls
+die Halbwertbreiten der Peaks eingezeichnet. Für die Position $\lambda_{max}$ der maximalen Intensitäten gilt
+\begin{equation}
+  \lambda_{max, 14} \approx \SI{598}{\nano\meter}, \quad \lambda_{max, 104} \approx \SI{582}{\nano\meter}
+\end{equation}
+und für die Halbwertsbreiten $\Delta \lambda$
+\begin{equation}
+  \Delta \lambda_{14} \approx \SI{139}{\nano\meter}, \quad \Delta \lambda_{104} \approx \SI{108}{\nano\meter}.
+\end{equation}
+%{'max_I': 19.533990965687238, 'max_wl': 598.1981981981983, 'lam+': 679.0790790790791, 'lam-': 539.7397397397398, 'fwhm': 139.3393393393393}
+%{'max_I': 17.688797357477288, 'max_wl': 582.982982982983, 'lam+': 645.0450450450451, 'lam-': 537.3373373373373, 'fwhm': 107.70770770770775}
+Hieraus kann eine Abschätzung für die Lebenszeit $\tau$ der Plasmonen vorgenommen werden
+\begin{equation}
+  \tau_{14} \approx \SI{1}{\second}, \quad   \tau_{104} \approx \SI{1}{\second}.
+\end{equation}
+
 
 \begin{figure}
   \centering
-  \includegraphics[scale = 1]{../analysis/results/refrective_index.pdf}
-  \caption{\cite{ref_index_au}}
-  \label{}
+  \includegraphics[scale = 1]{../analysis/results/refrective_index.png}
+  \caption{Verlauf der Komponenten $n$ und $k$ des komplexen Brechungsindices $n + i k$
+  von Gold mit den Daten nach \cite{ref_index_au} und einer quadratischen Interpolation.}.
+  \label{fig: ref_index}
 \end{figure}
 
 
 \begin{figure}
   \centering
-  \includegraphics[scale = 1]{../analysis/results/fit_14_104.pdf}
-  \caption{}
-  \label{}
+  \includegraphics[scale = 1]{../analysis/results/fit_14_104.png}
+  \caption{a) und b) CMOS Aufnahmen der Stellen auf der Probe, für die die Spektren in c) und d)
+  gemessen wurden. Neben den Messdaten sind in c) und d) die Ergebnisse der Fits an die Modelle~\eqref{eq: fit_q_sc}
+  und~\eqref{eq: fit_light} eingezeichnet.}
+  \label{fig: au_röhren_fits}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[scale = 1]{../analysis/results/compare_14_104.png}
+  \caption{Vergleich der gefitteten Streuquerschnitte $Q_{sc}$ für die beiden Polarisationen $14$ und $\SI{104}{\degree}$.}
+  \label{fig: compare_q_sc}
+\end{figure}
+\subsection{\ce{Au}-Nanosphären}
+Abbildung~\ref{fig: au_sphären_bilder} zeigt zwei der aufgenommenen CMOS Bilder an der Probe mit den \ce{Au}-Nanosphären.
+Es wurde für eine feste Einstellung der Polarisation ein Spektrum des Streulichtes, sowie ein
+Dunkelspektrum gemessen. Die Daten sind in Abbildung~\ref{fig: au_sphären_data} aufgetragen. In Teil c) ist die Differenz
+der Spektren dargestellt, die dem reinen Einfluss der Nanosphären entsprechen sollte.
+Hier zeigt sich, dass die Spektren in etwa gleich verlaufen.
+Dies spricht dafür, dass in dem Bereich der Probe, für den das Dunkelspektrum aufgenommen wurde, Nanospähren
+vorhanden waren.
+Auf eine quantitative Analyse der Spektren wie in Abschnitt~\ref{sec: auröhren} wird daher verzichtet.
+
+\begin{figure}
+  \centering
+  \includegraphics[scale = 1]{../analysis/results/pics_spheres.png}
+  \caption{Dunkelfeld Aufnahmen der \ce{Au}-Nanosphären, aufgenommen mit der CMOS Kamera.}
+  \label{fig: au_sphären_bilder}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[scale = 1]{../analysis/results/fit_spheres.png}
+  \caption{Aufgenommene Spektren der \ce{Au}-Nanosphären a) und b), sowie die Differenz der Kurven c).}
+  \label{fig: au_sphären_data}
 \end{figure}
