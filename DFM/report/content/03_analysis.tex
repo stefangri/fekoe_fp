@@ -3,14 +3,21 @@
 \subsection{\ce{Au}-Nanoröhren}
 \label{sec: auröhren}
 In den Abbildungen~\ref{fig: au_röhren_bilder} a)-d) sind vier beispielhafte Aufnahmen der
-\ce{Au}-Nanoröhren mit der CMOS-Kamera einzusehen.
-Zudem sind in den Abbildungen~\ref{fig: au_röhren_fits} a) und b) zwei weitere Aufnahmen gezeigt, für die
+\ce{Au}-Nanoröhren mit der CMOS-Kamera einzusehen. Die unterschiedlichen Formen deuten auf vereinzelte
+Cluster-Bildungen der Nanopartikel hin. In Abbildung~\ref{fig: au_röhren_bilder}~c) ist ein größeres Gold-Cluster
+zu sehen.
+In den Abbildungen~\ref{fig: au_röhren_fits} a) und b) zwei weitere Aufnahmen gezeigt, für die
 ebenfalls ein Spektrum aufgenommen wurde. Hierbei wurde die selbe Stelle der
 Probe einmal mit einer Einstellung des Polarisationsfilter von $\SI{104}{\degree}$
 und einmal von $\SI{14}{\degree}$ (um $\SI{90}{\degree}$ gedreht) aufgenommen.
 Die Spektren sind in Abbildung~\ref{fig: au_röhren_fits} c) und d) gezeigt, wobei
-hier bereits das Spektrum einer Dunkelaufnahme abgezogen wurde. Es ist deutlich zu erkennen, dass
-die maximal Intensität bei der Einstellung von $\SI{14}{\degree}$ höher ist. Die Spektren sollen
+hier bereits das Spektrum einer Dunkelaufnahme abgezogen wurde.
+Da das Spektrum aus mehreren Spektren zusammengesetzt ist, fällt die Wellenlängenabhängigkeit
+der Empfindlichkeit der CCD-Kamera des Spektrometers
+ins Gewicht. Hierdurch werden die ersichtlichen Sprünge in den Daten verursacht.
+Es ist deutlich zu erkennen, dass
+die maximal Intensität bei der Einstellung von $\SI{14}{\degree}$ höher ist.
+Die Spektren sollen
 nun quantitativ analysiert werden.
 \begin{figure}
   \centering
@@ -45,7 +52,10 @@ Für die Durchmesser $d$ ergeben sich für die beiden Polarisationseinstellungen
 \begin{equation}
   d_{104} \approx \SI{90}{\nano\meter}, \quad d_{14} \approx \SI{101}{\nano\meter}.
 \end{equation}
-Nach~\cite{anleitung} haben die Nanoröhren eine Ausdehnung von $\SI{}{\nano\meter}$.
+Nach~\cite{anleitung} haben die Nanoröhren eine Ausdehnung von $\SI{}{\nano\meter}$. Die hier bestimmten Werte
+können nicht als eine dieser beiden Abmessungen interpretiert werden. Vielmehr lassen sich die Werte als
+der effektive Durchmesser einer Kugel mit dem gleichen Volumen wie die Nanoröhren deuten. Da das Volumen der Nanoröhren
+unbekannt ist, kann dieses Argument nicht weiter verfolgt werden.
 In Abbildung~\ref{fig: compare_q_sc} sind die Komponenten~$Q_{sc}(\lambda, d)$ der Fits zum Vergleich erneut aufgetragen. Hier sind ebenfalls
 die Halbwertbreiten der Peaks eingezeichnet. Für die Position $\lambda_{max}$ der maximalen Intensitäten gilt
 \begin{equation}
@@ -55,13 +65,11 @@ und für die Halbwertsbreiten $\Delta \lambda$
 \begin{equation}
   \Delta \lambda_{14} \approx \SI{139}{\nano\meter}, \quad \Delta \lambda_{104} \approx \SI{108}{\nano\meter}.
 \end{equation}
-%{'max_I': 19.533990965687238, 'max_wl': 598.1981981981983, 'lam+': 679.0790790790791, 'lam-': 539.7397397397398, 'fwhm': 139.3393393393393}
-%{'max_I': 17.688797357477288, 'max_wl': 582.982982982983, 'lam+': 645.0450450450451, 'lam-': 537.3373373373373, 'fwhm': 107.70770770770775}
-Hieraus kann eine Abschätzung für die Lebenszeit $\tau$ der Plasmonen vorgenommen werden
+Hieraus kann eine Abschätzung für die Dephasierungszeit $\tau = \sfrac{2 \Delta \lambda}{c}$ \cite{t_deph} der Plasmonen vorgenommen werden
 \begin{equation}
-  \tau_{14} \approx \SI{1}{\second}, \quad   \tau_{104} \approx \SI{1}{\second}.
+  \tau_{14} \approx \SI{927}{\atto \second}, \quad   \tau_{104} \approx \SI{720}{\atto\second}.
 \end{equation}
-
+In Quelle~\cite{t_deph} findet man Werte für ähnliche Strukturen in der Größenordnung von $\SI{10}{\femto\second}$.
 
 \begin{figure}
   \centering
@@ -84,7 +92,7 @@ Hieraus kann eine Abschätzung für die Lebenszeit $\tau$ der Plasmonen vorgenom
 \begin{figure}
   \centering
   \includegraphics[scale = 1]{../analysis/results/compare_14_104.png}
-  \caption{Vergleich der gefitteten Streuquerschnitte $Q_{sc}$ für die beiden Polarisationen $14$ und $\SI{104}{\degree}$.}
+  \caption{Vergleich der gefitteten Streuquerschnitte $Q_{sc}$ für die beiden Polarisationen $\SI{14}{\degree}$ und $\SI{104}{\degree}$.}
   \label{fig: compare_q_sc}
 \end{figure}
 \subsection{\ce{Au}-Nanosphären}
@@ -95,7 +103,10 @@ der Spektren dargestellt, die dem reinen Einfluss der Nanosphären entsprechen s
 Hier zeigt sich, dass die Spektren in etwa gleich verlaufen.
 Dies spricht dafür, dass in dem Bereich der Probe, für den das Dunkelspektrum aufgenommen wurde, Nanospähren
 vorhanden waren.
-Auf eine quantitative Analyse der Spektren wie in Abschnitt~\ref{sec: auröhren} wird daher verzichtet.
+Auf eine quantitative Analyse der Spektren wie in Abschnitt~\ref{sec: auröhren} wird aus diesem Grund verzichtet.
+Zudem sind hier die Sprünge in den Daten, die bereits oben angesprochen wurden, wesentlich deutlicher
+ausgeprägt.
+
 
 \begin{figure}
   \centering
