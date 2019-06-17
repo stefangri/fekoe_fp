@@ -1,16 +1,17 @@
 \section{Auswertung}
+\label{sec: analysis}
 
 \subsection{\ce{Au}-Nanoröhren}
 \label{sec: auröhren}
-In den Abbildungen~\ref{fig: au_röhren_bilder} a)-d) sind vier beispielhafte Aufnahmen der
+In den Abbildungen~\ref{fig: au_röhren_bilder} (a)-(d) sind vier beispielhafte Aufnahmen der
 \ce{Au}-Nanoröhren mit der CMOS-Kamera einzusehen. Die unterschiedlichen Formen deuten auf vereinzelte
-Cluster-Bildungen der Nanopartikel hin. In Abbildung~\ref{fig: au_röhren_bilder}~c) ist ein größeres Gold-Cluster
+Cluster-Bildungen der Nanopartikel hin. In Abbildung~\ref{fig: au_röhren_bilder}~(c) ist ein größeres Gold-Cluster
 zu sehen.
-In den Abbildungen~\ref{fig: au_röhren_fits} a) und b) zwei weitere Aufnahmen gezeigt, für die
+In den Abbildungen~\ref{fig: au_röhren_fits} (a) und (b) sind zwei weitere Aufnahmen gezeigt, für die
 ebenfalls ein Spektrum aufgenommen wurde. Hierbei wurde die selbe Stelle der
 Probe einmal mit einer Einstellung des Polarisationsfilter von $\SI{104}{\degree}$
 und einmal von $\SI{14}{\degree}$ (um $\SI{90}{\degree}$ gedreht) aufgenommen.
-Die Spektren sind in Abbildung~\ref{fig: au_röhren_fits} c) und d) gezeigt, wobei
+Die Spektren sind in Abbildung~\ref{fig: au_röhren_fits} (c) und (d) gezeigt, wobei
 hier bereits das Spektrum einer Dunkelaufnahme abgezogen wurde.
 Da das Spektrum aus mehreren Spektren zusammengesetzt ist, fällt die Wellenlängenabhängigkeit
 der Empfindlichkeit der CCD-Kamera des Spektrometers
@@ -22,7 +23,7 @@ nun quantitativ analysiert werden.
 \begin{figure}
   \centering
   \includegraphics[scale = 1]{../analysis/results/pics_röhren.png}
-  \caption{Dunkelfeld Aufnahmen der \ce{Au}-Nanoröhren, aufgenommen mit der CMOS Kamera.}
+  \caption{Dunkelfeld Aufnahmen der \ce{Au}-Nanoröhren, aufgenommen mit der CMOS-Kamera.}
   \label{fig: au_röhren_bilder}
 \end{figure}
 
@@ -33,7 +34,13 @@ mittels des Modells
   D(\lambda) = A \cdot S(\lambda), \quad A \in R^{+}
   \label{eq: fit_light}
 \end{equation}
-an die Daten $D(\lambda)$ angepasst. Das Ergebnis für die beiden Spektren ist ebenfalls in den Abbildungen~\ref{fig: au_röhren_fits} c) und d)
+an die Daten $D(\lambda)$ angepasst.
+Es ergibt sich
+\begin{equation}
+  A_{14} \approx 52, \quad A_{104} \approx 38.
+\end{equation}
+Hierdurch wird der bereits erwähnte Intensitätsunterschied verdeutlicht.
+Das Ergebnis der Fits für die beiden Spektren ist ebenfalls in den Abbildungen~\ref{fig: au_röhren_fits} (c) und (d)
 eingezeichnet (grüne Linien). Der Fit macht deutlich, dass die Gestalt der aufgenommenen Spektren
 durch das Licht der Lichtquelle dominiert wird.
 
@@ -50,9 +57,9 @@ vorhanden sind. Die Verläufe der Brechungsindix-Komponenten und die Interpolati
 dargestellt. Die Fits an das Modell~\eqref{eq: fit_q_sc} sind in Abbildung~\ref{fig: au_röhren_fits} eingezeichnet.
 Für die Durchmesser $d$ ergeben sich für die beiden Polarisationseinstellungen
 \begin{equation}
-  d_{104} \approx \SI{90}{\nano\meter}, \quad d_{14} \approx \SI{101}{\nano\meter}.
+  d_{14} \approx \SI{101}{\nano\meter}, \quad d_{104} \approx \SI{90}{\nano\meter}, .
 \end{equation}
-Nach~\cite{anleitung} haben die Nanoröhren eine Ausdehnung von $\SI{}{\nano\meter}$. Die hier bestimmten Werte
+Nach~\cite{anleitung} haben die Nanoröhren eine Ausdehnung von $\SI{(25 \times 60)}{\nano\meter}$. Die hier bestimmten Werte
 können nicht als eine dieser beiden Abmessungen interpretiert werden. Vielmehr lassen sich die Werte als
 der effektive Durchmesser einer Kugel mit dem gleichen Volumen wie die Nanoröhren deuten. Da das Volumen der Nanoröhren
 unbekannt ist, kann dieses Argument nicht weiter verfolgt werden.
@@ -83,7 +90,7 @@ In Quelle~\cite{t_deph} findet man Werte für ähnliche Strukturen in der Größ
 \begin{figure}
   \centering
   \includegraphics[scale = 1]{../analysis/results/fit_14_104.png}
-  \caption{a) und b) CMOS Aufnahmen der Stellen auf der Probe, für die die Spektren in c) und d)
+  \caption{a) und b) CMOS-Aufnahmen der Stellen auf der Probe, für die die Spektren in c) und d)
   gemessen wurden. Neben den Messdaten sind in c) und d) die Ergebnisse der Fits an die Modelle~\eqref{eq: fit_q_sc}
   und~\eqref{eq: fit_light} eingezeichnet.}
   \label{fig: au_röhren_fits}
@@ -95,10 +102,13 @@ In Quelle~\cite{t_deph} findet man Werte für ähnliche Strukturen in der Größ
   \caption{Vergleich der gefitteten Streuquerschnitte $Q_{sc}$ für die beiden Polarisationen $\SI{14}{\degree}$ und $\SI{104}{\degree}$.}
   \label{fig: compare_q_sc}
 \end{figure}
+
+
+
 \subsection{\ce{Au}-Nanosphären}
-Abbildung~\ref{fig: au_sphären_bilder} zeigt zwei der aufgenommenen CMOS Bilder an der Probe mit den \ce{Au}-Nanosphären.
+Abbildung~\ref{fig: au_sphären_bilder} zeigt zwei der aufgenommenen CMOS-Bilder an der Probe mit den \ce{Au}-Nanosphären.
 Es wurde für eine feste Einstellung der Polarisation ein Spektrum des Streulichtes, sowie ein
-Dunkelspektrum gemessen. Die Daten sind in Abbildung~\ref{fig: au_sphären_data} aufgetragen. In Teil c) ist die Differenz
+Dunkelspektrum gemessen. Die Daten sind in Abbildung~\ref{fig: au_sphären_data} aufgetragen. In Teil (c) ist die Differenz
 der Spektren dargestellt, die dem reinen Einfluss der Nanosphären entsprechen sollte.
 Hier zeigt sich, dass die Spektren in etwa gleich verlaufen.
 Dies spricht dafür, dass in dem Bereich der Probe, für den das Dunkelspektrum aufgenommen wurde, Nanospähren
@@ -107,11 +117,10 @@ Auf eine quantitative Analyse der Spektren wie in Abschnitt~\ref{sec: auröhren}
 Zudem sind hier die Sprünge in den Daten, die bereits oben angesprochen wurden, wesentlich deutlicher
 ausgeprägt.
 
-
 \begin{figure}
   \centering
   \includegraphics[scale = 1]{../analysis/results/pics_spheres.png}
-  \caption{Dunkelfeld Aufnahmen der \ce{Au}-Nanosphären, aufgenommen mit der CMOS Kamera.}
+  \caption{Dunkelfeld Aufnahmen der \ce{Au}-Nanosphären, aufgenommen mit der CMOS-Kamera.}
   \label{fig: au_sphären_bilder}
 \end{figure}
 

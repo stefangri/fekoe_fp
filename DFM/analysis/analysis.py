@@ -150,6 +150,7 @@ def sum_light_mie(lam, A, size, B): #define sum of light source spectrum and mie
 params104, cov   = curve_fit(sum_light_mie, x104[::20], (y104 - ydark)[::20], p0 = [3, 40, 20], bounds = (0, np.inf))
 paramslight, cov = curve_fit(lambda lam, B: B * light_inter(lam), x104[::20], (y104 - ydark)[::20], p0 = [40], bounds = (0, np.inf))
 print(params104[1])
+print(paramslight)
 
 fig = plt.figure(figsize = (5.906, 4 * 1.5))
 spec = gridspec.GridSpec(ncols=2, nrows=3, figure=fig)
@@ -184,6 +185,7 @@ ax.legend()
 params14, cov    = curve_fit(sum_light_mie, x14[::20], (y14 - ydark)[::20], p0 = [3, 80, 30], bounds = (0, np.inf))
 paramslight, cov = curve_fit(lambda lam, B: B * light_inter(lam), x14[::20], (y14 - ydark)[::20], p0 = [40], bounds = (0, np.inf))
 print(params14[1])
+print(paramslight)
 
 #fig = plt.figure(figsize = (5.906, 4))
 ax2 = fig.add_subplot(spec[1:, 1], sharey = ax)
