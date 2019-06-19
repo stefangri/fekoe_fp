@@ -1,0 +1,3 @@
+import PyMieScatt as ps
+def Q_scatter(lam, size, A):
+    return A * np.array([ps.MieQ(m = 0.2+3j,diameter = size, wavelength = lam, nMedium = 1.5)[1] for lam in lam])# / max([ps.MieQ(m = 0.2+3j,diameter = size, wavelength = lam, nMedium = 1.5)[1] for lam in lam*1e9])
