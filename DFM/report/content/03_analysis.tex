@@ -1,18 +1,24 @@
 \section{Auswertung}
 \label{sec: analysis}
+Im Folgenden werden die aufgenommenen Daten vorgestellt und notwendiger Rechnungen durchgeführt.
+Hierbei werden für die verschiedenen Proben jeweils die Aufnahmen mit der CMOS-Kamera gezeigt und qualitativ besprochen.
+Für die gemessenen Spektren werden Ausgleichsrechnungen an den theoretisch zu erwartenden Verlauf der Mie-Theorie
+durchgeführt.
 
 \subsection{\ce{Au}-Nanoröhren}
 \label{sec: auröhren}
 In den Abbildungen~\ref{fig: au_röhren_bilder} (a)-(d) sind vier beispielhafte Aufnahmen der
 \ce{Au}-Nanoröhren mit der CMOS-Kamera einzusehen. Die unterschiedlichen Formen deuten auf vereinzelte
 Cluster-Bildungen der Nanopartikel hin. In Abbildung~\ref{fig: au_röhren_bilder}~(c) ist ein größeres Gold-Cluster
-zu sehen.
+zu sehen. Es ist jeweils an der überwiegend weißen Farbe der Nanopartikel zu erkennen, dass die
+Intensität der Lampe zu einer Sättigung geführt hat.
 In den Abbildungen~\ref{fig: au_röhren_fits} (a) und (b) sind zwei weitere Aufnahmen gezeigt, für die
 ebenfalls ein Spektrum aufgenommen wurde. Hierbei wurde die selbe Stelle der
 Probe einmal mit einer Einstellung des Polarisationsfilter von $\SI{104}{\degree}$
 und einmal von $\SI{14}{\degree}$ (um $\SI{90}{\degree}$ gedreht) aufgenommen.
+
 Die Spektren sind in Abbildung~\ref{fig: au_röhren_fits} (c) und (d) gezeigt, wobei
-hier bereits das Spektrum einer Dunkelaufnahme abgezogen wurde.
+hier bereits das Spektrum einer Hintergrundaufnahme (oder Dunkelaufnahme) abgezogen wurde.
 Da das Spektrum aus mehreren Spektren zusammengesetzt ist, fällt die Wellenlängenabhängigkeit
 der Empfindlichkeit der CCD-Kamera des Spektrometers
 ins Gewicht. Hierdurch werden die ersichtlichen Sprünge in den Daten verursacht.
@@ -23,7 +29,7 @@ nun quantitativ analysiert werden.
 \begin{figure}
   \centering
   \includegraphics[scale = 1]{../analysis/results/pics_röhren.png}
-  \caption{Dunkelfeld Aufnahmen der \ce{Au}-Nanoröhren, aufgenommen mit der CMOS-Kamera.}
+  \caption{Dunkelfeld-Aufnahmen der \ce{Au}-Nanoröhren, aufgenommen mit der CMOS-Kamera.}
   \label{fig: au_röhren_bilder}
 \end{figure}
 
@@ -38,9 +44,11 @@ an die Daten $D(\lambda)$ angepasst.
 Es ergibt sich
 \begin{equation}
   A_{14} \approx 52, \quad A_{104} \approx 38.
+  \label{eq: amplitudes_light_spectrum}
 \end{equation}
-Hierdurch wird der bereits erwähnte Intensitätsunterschied verdeutlicht.
-Das Ergebnis der Fits für die beiden Spektren ist ebenfalls in den Abbildungen~\ref{fig: au_röhren_fits} (c) und (d)
+Der Index gibt hierbei die Einstellung des Polarisators in $\si{\degree}$ an.
+Durch das Ergebnis~\eqref{eq: amplitudes_light_spectrum} wird der bereits erwähnte Intensitätsunterschied verdeutlicht.
+Das Ergebnis der Fits für die beiden Spektren ist ebenfalls in den Abbildungen~\ref{fig: au_röhren_fits}~(c) und (d)
 eingezeichnet (grüne Linien). Der Fit macht deutlich, dass die Gestalt der aufgenommenen Spektren
 durch das Licht der Lichtquelle dominiert wird.
 
@@ -77,11 +85,13 @@ Hieraus kann eine Abschätzung für die Dephasierungszeit $\tau = \sfrac{2 \Delt
   \tau_{14} \approx \SI{927}{\atto \second}, \quad   \tau_{104} \approx \SI{720}{\atto\second}.
 \end{equation}
 In Quelle~\cite{t_deph} findet man Werte für ähnliche Strukturen in der Größenordnung von $\SI{10}{\femto\second}$.
+Hier wurde jedoch sicher gestellt, dass das Signal nur von einzelnen Partikeln stammt, was in diesem Versuch
+nicht der Fall ist. Die hier gemessenen Werte können also als die Mittlung über ein Ensemble aufgefasst werden.
 
 \begin{figure}
   \centering
   \includegraphics[scale = 1]{../analysis/results/refrective_index.png}
-  \caption{Verlauf der Komponenten $n$ und $k$ des komplexen Brechungsindices $n + i k$
+  \caption{Verlauf der Komponenten $n$ und $k$ des komplexen Brechungsindixes $n + i k$
   von Gold mit den Daten nach \cite{ref_index_au} und einer quadratischen Interpolation.}.
   \label{fig: ref_index}
 \end{figure}
@@ -108,10 +118,10 @@ In Quelle~\cite{t_deph} findet man Werte für ähnliche Strukturen in der Größ
 \subsection{\ce{Au}-Nanosphären}
 Abbildung~\ref{fig: au_sphären_bilder} zeigt zwei der aufgenommenen CMOS-Bilder an der Probe mit den \ce{Au}-Nanosphären.
 Es wurde für eine feste Einstellung der Polarisation ein Spektrum des Streulichtes, sowie ein
-Dunkelspektrum gemessen. Die Daten sind in Abbildung~\ref{fig: au_sphären_data} aufgetragen. In Teil (c) ist die Differenz
+Hintergrundspektrum gemessen. Die Daten sind in Abbildung~\ref{fig: au_sphären_data} aufgetragen. In Teil (c) ist die Differenz
 der Spektren dargestellt, die dem reinen Einfluss der Nanosphären entsprechen sollte.
 Hier zeigt sich, dass die Spektren in etwa gleich verlaufen.
-Dies spricht dafür, dass in dem Bereich der Probe, für den das Dunkelspektrum aufgenommen wurde, Nanospähren
+Dies spricht dafür, dass in dem Bereich der Probe, für den das Hintergrundspektrum aufgenommen wurde, Nanospähren
 vorhanden waren.
 Auf eine quantitative Analyse der Spektren wie in Abschnitt~\ref{sec: auröhren} wird aus diesem Grund verzichtet.
 Zudem sind hier die Sprünge in den Daten, die bereits oben angesprochen wurden, wesentlich deutlicher
@@ -120,7 +130,7 @@ ausgeprägt.
 \begin{figure}
   \centering
   \includegraphics[scale = 1]{../analysis/results/pics_spheres.png}
-  \caption{Dunkelfeld Aufnahmen der \ce{Au}-Nanosphären, aufgenommen mit der CMOS-Kamera.}
+  \caption{Dunkelfeld-Aufnahmen der \ce{Au}-Nanosphären, aufgenommen mit der CMOS-Kamera.}
   \label{fig: au_sphären_bilder}
 \end{figure}
 
