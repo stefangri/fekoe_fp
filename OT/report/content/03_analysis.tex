@@ -132,6 +132,7 @@ Auf die Gründe für die fehlerhafte Messung wird in Kapitel~\ref{sec: diskussio
 \input{../analysis/data/i_quarz/quarz_result_tab.tex}
 
 \FloatBarrier
+
 \newpage
 \subsection{Polysterenkugeln}
 Analog zu der Auswertung aus dem vorangegenagen Abschnitt wird für die Polysterenkugeln vorgegangen.
@@ -157,7 +158,7 @@ mit Krafteinwirkung (Abbildung~\ref{fig: poly_with_force}) dargestellt.
 \end{figure}
 
 Abbildung~\ref{fig: poly_k_power} zeigt die Intensitätsabhängigkeit der Fallensteifigkeit aus der Messreihe ohne Krafteinwirkung,
-Abbildung~\ref{fig: poly_k_power_series_force} zeigt den Verluaf aus der Messreihe mit Krafteinwirkung. Ale Werte sind in Tabelle~\ref{tab: poly_result}
+Abbildung~\ref{fig: poly_k_power_series_force} zeigt den Verlauf aus der Messreihe mit Krafteinwirkung. Ale Werte sind in Tabelle~\ref{tab: poly_result}
 eingetragen. Erneut ist ersichtlich, dass die Messung mit Krafteinwirkung keine Ergebnisse liefert.
 
 Im Mittel aus allen
@@ -185,3 +186,49 @@ gefunden.
 \FloatBarrier
 
 \subsection{Zwiebelzellen}
+Nachfolgend werden die Beobachtungen an den Zwiebelzellen vorgestellt. Hierbei wird mehrfach auf Videos aus dem Anhang
+verwiesen. Abbildung~\ref{fig: zwiebelzelle} zeigt zunächst eine exemplarische Aufnahme der Zwiebelzelle mit der CMOS-Kamera.
+Mittig des Bildes sind die Vesikel innerhalb einer Mikrofaser deutlich zu erkennen.
+\begin{figure}
+  \centering
+  \includegraphics[width = 0.4\textwidth]{../analysis/data/iii_zwiebel/bilder/1.png}
+  \caption{Exemplarische CMOS-Aufnahme der Zwiebelzelle.}
+  \label{fig: zwiebelzelle}
+\end{figure}
+
+In dem Video 1.avi im Zwiebel-Anhang lässt sich beobachten, dass die Strukturen innerhalb der Zelle mit der optischen Pinzette
+beeinflussen lassen. Innerhalb einer Mikrofaser können einzelne Vesikel gefangen werden und durch die Faser transportiert werden
+(siehe Video 2.avi). Hierbei ist zu bobachten, dass die Kraft durch die Falle teilweise schwächer ist als die Kraft, die die
+Vesikel in der Faser hält (Video 3.avi oder 4.avi). ach einer Auslenkung bewegen sich die Fasern wieder in eine
+Ruhelage. Mit einem Laserstrom von $\SI{70}{\milli\ampere}$, was in etwa einer Fallensteifigkeit von
+$\SI{26.2e-7}{\newton\per\meter}$ entspricht ist es nicht möglich ein Vesikel aus der Faser zu lösen (Video 70mA.avi). Mit einem STrom
+von $\SI{170}{\milli\ampere}$ bzw. einer Fallensteifigkeit von $\SI{70e-7}{\newton\meter}$ gelingt dies (Video 170mA.avi).  
+
+Abschließend soll die Geschwindigkeit der Vesikel bestimmt werden. Hierzu ist zunächst die Größe der Objekte relevant.
+In Abbildung~\ref{fig: vesikel_size} ist eine Kameraaufnahme mit mehreren Vesikeln zu sehen. Hieraus wurden die Radien in Pixeln
+bestimmt (siehe rote Kreise in der Abbildung). Im Mittel haben die Vesikel einen Radius von $\num{11.2}$ Pixeln. Im Vergleich hierzu haben die Quarzkugeln (siehe etwa
+Abbildung~\ref{fig: quarz_screenshot}) einen Radius von ca. $\num{24.2}$ Pixeln. Aus der Kenntnis der Quarzkugelgöße von ca. $\SI{2}{\micro\meter}$
+wird somit die Vesikelgröße zu
+\begin{equation}
+d_{\text{Vesikel}} \approx \SI{0.9}{\micro\meter}
+\end{equation}
+abgeschätzt.
+Abbildung~\ref{fig: velocity} zeigt den Verlauf einer Messung währen sich ein Vesikel durh den Laserstrahl bewegt hat. Die temporäre
+Auslenkung aus einem konstanten Wert ist deutlich zu erkennen. Aus dem Vesikeldurchmesser und dem zeitlichen Abstand der beiden vertikalen
+Linien in Abbildung~\ref{fig: velocity} wird die Geschwindigeit berechnet
+\begin{equation}
+  v_{\text{Vesikel}} \approx \SI{1.03}{\micro\meter\per\second}.
+\end{equation}
+\begin{figure}
+  \centering
+  \includegraphics[width = 0.4\textwidth]{../analysis/data/iii_zwiebel/bilder/particle_size_(2)_circles.png}
+  \caption{Aufnahme mehrerer Vesikel zur Abschätzung des Durchmessers. In rot sind die Kreise eingzeichnet, mit denen
+  die Durchmesser abgeschätzt wurden. }
+  \label{fig: vesikel_size}
+\end{figure}
+\begin{figure}
+  \centering
+  \includegraphics[scale = 1]{../analysis/data/iii_zwiebel/velocity/velocity.pdf}
+  \caption{Gemessener zeitlicher Verlauf des Photodiodensignals beim Durchgang eines Vesikels durch den Laser.}
+  \label{fig: velocity}
+\end{figure}
