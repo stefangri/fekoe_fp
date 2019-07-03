@@ -1,0 +1,3 @@
+#boltzmann constant for laser power 170mA 
+kbx/J/K 	 8.867975084875326e-25 	 1.256624214005356e-26 
+kby/J/K 	 1.242017599186048e-22 	 1.4893712573968292e-24 

@@ -1,0 +1,2 @@
+#radius der quarzkugeln in pixel
+24.161
