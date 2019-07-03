@@ -32,11 +32,11 @@ def power_density(f, A, f0):
     return A / (f**2 / f0 + f0)
 
 name = os.getcwd().split('/')[-1]
-with open(f'results/results_with_force_{name}.txt', 'w') as file:
+with open(f'results/results_without_force_{name}.txt', 'w') as file:
     file.write(f'#Amplitudes and roll-off frequencies for laser power {name} \n')
 
-#ANALYZE DATA WITH FORCE IN X DIRECTION
-x, y, sum = np.genfromtxt(f'{name}_x.dat', unpack = True)
+#ANALYZE DATA WITHOUT FORCE
+x, y, sum = np.genfromtxt(f'{name}_ohne.dat', unpack = True)
 xcal, ycal = np.genfromtxt(f'zcalibration.txt', unpack = True)
 x /= xcal
 y /= ycal
@@ -95,18 +95,6 @@ ax2.text(0.01 , 0.96, r'(b)', horizontalalignment='left', verticalalignment='top
 #ax2.savefig(f'xpowerdensity_{name}.png')
 
 
-
-
-
-
-
-
-#ANALYZE DATA WITH FORCE IN Y DIRECTION
-x, y, sum = np.genfromtxt(f'{name}_y.dat', unpack = True)
-xcal, ycal = np.genfromtxt(f'zcalibration.txt', unpack = True)
-x /= xcal
-y /= ycal
-fs = 10e3
 
 f, Pxx_den = signal.periodogram(y - np.mean(y), fs)
 dt = 1 / fs
@@ -192,32 +180,32 @@ t = np.arange(0, len(x)*dt, step = dt)
 
 
 
-fig2 = plt.figure(figsize = (5.7, 4))
-ax5 = fig2.add_subplot(221)
-ax5.plot(t, x - np.mean(x))
-ax5.set_xlim(t[0], t[-1])
-ax5.set_xlabel(r'$t / \si{\second}$')
-ax5.set_ylabel(r'$x - \langle x \rangle / \si{\micro\meter}$')
-ax5.text(0.01 , 0.96, r'(a)', horizontalalignment='left', verticalalignment='top', transform = ax5.transAxes, color = 'black')
+fig2 = plt.figure(figsize = (5.7, 2))
+#ax5 = fig2.add_subplot(221)
+#ax5.plot(t, x - np.mean(x))
+#ax5.set_xlim(t[0], t[-1])
+#ax5.set_xlabel(r'$t / \si{\second}$')
+#ax5.set_ylabel(r'$x - \langle x \rangle / \si{\micro\meter}$')
+#ax5.text(0.01 , 0.96, r'(a)', horizontalalignment='left', verticalalignment='top', transform = ax5.transAxes, color = 'black')
+#
+#ax6 = fig2.add_subplot(223)
+#ax6.plot(t, y - np.mean(y), color = colors[1])
+#ax6.set_xlim(t[0], t[-1])
+#ax6.set_xlabel(r'$t / \si{\second}$')
+#ax6.set_ylabel(r'$y - \langle y \rangle / \si{\micro\meter}$')
+#ax6.text(0.01 , 0.96, r'(c)', horizontalalignment='left', verticalalignment='top', transform = ax6.transAxes, color = 'black')
 
-ax6 = fig2.add_subplot(223)
-ax6.plot(t, y - np.mean(y), color = colors[1])
-ax6.set_xlim(t[0], t[-1])
-ax6.set_xlabel(r'$t / \si{\second}$')
-ax6.set_ylabel(r'$y - \langle y \rangle / \si{\micro\meter}$')
-ax6.text(0.01 , 0.96, r'(c)', horizontalalignment='left', verticalalignment='top', transform = ax6.transAxes, color = 'black')
 
-
-ax7 = fig2.add_subplot(222)
+ax7 = fig2.add_subplot(121)
 ax7.hist(x - np.mean(x), bins = 30, histtype = 'step')
 ax7.set_xlabel(r'$x - \langle x \rangle / \si{\micro\meter}$')
-ax7.text(0.01 , 0.96, r'(b)', horizontalalignment='left', verticalalignment='top', transform = ax7.transAxes, color = 'black')
+ax7.text(0.01 , 0.96, r'(a)', horizontalalignment='left', verticalalignment='top', transform = ax7.transAxes, color = 'black')
 ax7.set_ylabel('Häufigkeit')
 
-ax8 = fig2.add_subplot(224)
+ax8 = fig2.add_subplot(122)
 ax8.hist(y - np.mean(y), bins = 30, histtype = 'step', color = colors[1])
 ax8.set_xlabel(r'$y - \langle y \rangle / \si{\micro\meter}$')
-ax8.text(0.01 , 0.96, r'(d)', horizontalalignment='left', verticalalignment='top', transform = ax8.transAxes, color = 'black')
+ax8.text(0.01 , 0.96, r'(b)', horizontalalignment='left', verticalalignment='top', transform = ax8.transAxes, color = 'black')
 ax8.set_ylabel('Häufigkeit')
 fig2.tight_layout()
 
@@ -241,7 +229,7 @@ with open(f'results/results_spring_constant_{name}.txt', 'w') as file:
 
 with open(f'results/results_spring_constant_{name}.txt', 'a') as file:
     file.write(f'kx/N/m \t {kx.magnitude.n} \t {kx.magnitude.s} \n')
-    file.write(f'ky/N/m \t {ky.magnitude.n} \t {kx.magnitude.s} \n')
+    file.write(f'ky/N/m \t {ky.magnitude.n} \t {ky.magnitude.s} \n')
 
 
 with open(f'results/results_boltzmann_constant_{name}.txt', 'w') as file:
@@ -253,6 +241,47 @@ with open(f'results/results_boltzmann_constant_{name}.txt', 'a') as file:
 
 
 
+# DATA WITH FORCE
+x, y, sum = np.genfromtxt(f'{name}_x.dat', unpack = True)
+x /= xcal
+y /= ycal
+t = np.arange(0, len(x)*dt, step = dt)
+
+v = Q_(2, 'micrometer / second')
+kx_force = np.mean(beta * v / Q_(x, 'micrometer')).to('newton / meter')
+
+fig3 = plt.figure(figsize = (5.7, 3.9))
+ax9 = fig3.add_subplot(211)
+ax9.plot(t, x, label = 'Daten')
+ax9.set_xlabel(r'$t / \si{\second}$')
+ax9.set_ylabel(r'$x / \si{\micro\meter}$')
+ax9.set_xlim(t[0], t[-1])
+ax9.legend(loc = 'lower left')
+ax9.text(0.03 , 0.96, r'(a)', horizontalalignment='left', verticalalignment='top', transform = ax9.transAxes, color = 'black')
+
+
+
+x, y, sum = np.genfromtxt(f'{name}_y.dat', unpack = True)
+x /= xcal
+y /= ycal
+t = np.arange(0, len(y)*dt, step = dt)
+
+
+ky_force = np.mean(beta * v / Q_(y, 'micrometer')).to('newton / meter')
+
+
+ax10 = fig3.add_subplot(212)
+ax10.plot(t, y, label = 'Daten', color = colors[1])
+ax10.set_xlabel(r'$t / \si{\second}$')
+ax10.set_ylabel(r'$y / \si{\micro\meter}$')
+ax10.set_xlim(t[0], t[-1])
+ax10.legend(loc = 'lower left')
+ax10.text(0.03 , 0.96, r'(b)', horizontalalignment='left', verticalalignment='top', transform = ax9.transAxes, color = 'black')
+
+
+with open(f'results/results_spring_constant_{name}.txt', 'a') as file:
+    file.write(f'kx/N/mwithforce \t {kx_force.magnitude} \t {0} \n')
+    file.write(f'ky/N/mwithforce \t {ky_force.magnitude} \t {0} \n')
 
 
 
@@ -262,16 +291,6 @@ with open(f'results/results_boltzmann_constant_{name}.txt', 'a') as file:
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-fig.savefig(f'results/with_force_{name}.pdf', bbox_inches = 'tight', pad_inches = 0)
-fig2.savefig(f'results/without_force_{name}.pdf', bbox_inches = 'tight', pad_inches = 0)
+fig.savefig(f'results/without_force_{name}.pdf', bbox_inches = 'tight', pad_inches = 0)
+fig2.savefig(f'results/without_force_histogram_{name}.pdf', bbox_inches = 'tight', pad_inches = 0)
+fig3.savefig(f'results/with_force_{name}.pdf', bbox_inches = 'tight', pad_inches = 0)

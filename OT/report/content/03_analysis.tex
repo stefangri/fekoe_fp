@@ -7,59 +7,181 @@ Fallensteifigkeit zu bestimmen. Abschließend werden die Messungen und Beobachtu
 gezeigt.
 
 \subsection{Kalibrierung der lateralen Position}
+Die Daten der Kalibrierung der lateralen Position konnten nicht aus der Thorlabs-Software extrahiert werden. Zwei
+Kurven für den Verlauf der Diodenspannung beim räumlichen Scan über eine fixierte Quarzkugel sind in Abbildung~\ref{fig: calibration}
+in einem Screenshot einzusehen. Anhand der grün eingefärbten linearen Regressionen an die Daten kann für alle Stromstärken eine
+Umrechnung zwischen Spannung und Position ermittelt werden. Die einzelnen Umrechnungsfaktoren sind in Tabelle~\ref{tab: zcalibration} aufgeführt.
 
+\begin{figure}
+  \centering
+  \includegraphics[width = 0.6\textwidth]{../analysis/data/i_quarz/70mA/position_calibration_70mA.png}
+  \caption{Screenshot aus der Thorlabs Software. Die Kurven zeigen den Verlauf der Photodiodenspannung beim Scan über
+  eine fixierte Quarzkugel. Die linearen, grün markierten Bereiche werden zur Kalibrierung zwischen lateraler Position und Spannung verwendet.}
+  \label{fig: calibration}
+\end{figure}
+\input{../analysis/data/i_quarz/zcalibration_tab.tex}
 
+\FloatBarrier
 \subsection{Quarzkugeln}
 Die Messungen an den Quarzkugeln wurden für die Pumpstromstärken $\SI{70}{\milli\ampere}$, $\SI{170}{\milli\ampere}$,
 $\SI{270}{\milli\ampere}$, $\SI{370}{\milli\ampere}$ und $\SI{470}{\milli\ampere}$ durchgeführt. Da das Vorgehen der Auswertung
 jeweils völlig analog funktioniert, werden hier nur im Detail die Messungen für $I = \SI{70}{\milli\ampere}$ gezeigt.
+In Abbildung~\ref{fig: quarz_screenshot} ist eine eingefangen Quarzkugel gezeigt. Der gelbe Kreis gibt die Position
+der optischen Pinzette an. Es ist anzumerken, dass nicht für alle Stromstärken die selbe Quarzkugel verwendet werden
+konnte, da weitere Quarzkugeln in die Falle eingefangen wurden.
+\begin{figure}
+  \centering
+  \includegraphics[width = 0.4\textwidth]{../analysis/data/i_quarz/70mA/070mA_screenshot.png}
+  \caption{Bild einer eingefangen Quarzkugel mit einer Pumpstromstärke von $\SI{70}{\milli\ampere}$. Der gelbe Kreis gibt die
+  Position der optischen Pinzette an.}
+  \label{fig: quarz_screenshot}
+\end{figure}
+\FloatBarrier
 
-Abbildung~\ref{}~(a) und (c) zeigen die Kugelpositionen in $x$- und $y$-Richtung unter Einwirkung
-einer periodischen Kraft () durch die Piezosteuerung des Probentisches.
+Abbildung~\ref{fig: quarz_without_force}~(a) und (c) zeigen die Kugelpositionen in $x$- und $y$-Richtung ohne Einwirkung
+einer Kraft. %(Amplitude $\SI{1}{\micro\meter}$, Frequenz $\SI{1}{\hertz}$) durch die Piezosteuerung des Probentisches.
 Aus diesen Daten wird als Schätzer für die spektrale Leistungsdichte
-ein Periodogramm berechnet. Dies ist jeweils in den Abbildungen~\ref{}~(b) und (d) einzusehen. Die Kurven werden
+ein Periodogramm berechnet. Dies ist jeweils in den Abbildungen~\ref{fig: quarz_without_force}~(b) und (d) einzusehen. Die Kurven werden
 an eine Funktion der Gestalt
 \begin{equation}
   PSD(f) = \frac{A}{f^2 + f_0^2}
+  \label{eq: lorentz}
 \end{equation}
 angepasst. Hierin ist $f_0$ die \emph{roll-off}-Frequenz. Es ergibt sich
 \begin{equation}
-  f_{0, \SI{70}{\milli\ampere}} \approx
+  f_{0, x} \approx \SI{4.0}{\hertz}, \quad f_{0, y} \approx \SI{5.4}{\hertz}.
 \end{equation}
-Aus dieser Frequenz kann gemäß
+Aus diesen Frequenzen kann gemäß
 \begin{equation}
-  k =
+  k = 2\pi \beta f_0
 \end{equation}
-die Fallensteifigkeit $k$ ermittelt werden. Abbildung~\ref{} zeigt die Abhängigkeit der Fallensteifigkeit von dem
-Pumpstrom $I$ und damit von der Laser-Intensität. Es ist ein linearer Trend zu erkennen, wobei der Datenpunkt $k_x$
-für $\SI{370}{\milli\ampere}$ deutlich ausreißt.
+die Fallensteifigkeit $k$ ermittelt werden. Abbildung~\ref{fig: quarz_k_power_series} zeigt die Abhängigkeit der Fallensteifigkeit von dem
+Pumpstrom $I$ und damit von der Laser-Intensität. Die Datenpunkte sind in Tabelle~\ref{tab: quarz_result} eingetragen.
+Es ist ein linearer Trend zu erkennen, wobei der Datenpunkt $k_x$
+für $\SI{370}{\milli\ampere}$ deutlich ausreißt. Für die Steigungen $s$ ergeben sich aus einer linearen Regression
+\begin{equation}
+  s_x \approx \SI{0.8e-7}{\newton \per \meter \per \milli\ampere}, \quad  s_y \approx \SI{0.5e-7}{\newton \per \meter \per \milli\ampere}
+\end{equation}
+\begin{figure}
+  \centering
+  \includegraphics[scale = 1]{../analysis/data/i_quarz/70mA/results/without_force_70mA.pdf}
+  \caption{Messreihe an den Quarzkugeln zur Bestimmung der \emph{roll-off}-Frequenz aus der zeitlichen Variation der Kugelposition ohne Einwirkung einer äußeren Kraft.
+  (a) und (c) zeigen die Zeitserien für die $x$- bzw. $y$- Postion. (b) und (d) zeigen die berechneten spektralen Leistungsdichten und die Fits an das
+  Modell~\eqref{eq: lorentz}. Für den Fit wurden nur die grau hinterlegten Daten verwendet.}
+  \label{fig: quarz_without_force}
+\end{figure}
+\begin{figure}
+  \centering
+  \includegraphics[scale = 1]{../analysis/data/i_quarz/k_power_series.pdf}
+  \caption{Messreihe an den Quarzkugeln zur Untersuchung der Abhängigkeit der Fallensteifigkeit von dem Pumpstrom des Diodenlasers
+  in $x$- und $y$-Richtung. Die Daten stammen aus der Messung ohne Krafteinfluss. }
+  \label{fig: quarz_k_power_series}
+\end{figure}
 
-In den Abbildungen~\ref{}~(a) und~(c) ist die Kugelposition als Funktion der Zeit ohne Krafteinwirkung dargestellt.
-Es ist sowohl in $x$- als auch in $y$-Richtung eine Asymmetrie in der Verteilung der Positionen mit der Zeit zu erkennen.
-Dies ist deutlicher in einer histogrammierten Ansicht (Abbildung~\ref{}~(b) und (c)) zu beobachten.
+In den Abbildungen~\ref{fig: quarz_without_force}~(a) und~(c) ist
+sowohl in $x$- als auch in $y$-Richtung eine Asymmetrie in der Verteilung der Positionen mit der Zeit zu erkennen.
+Dies ist deutlicher in einer histogrammierten Ansicht (Abbildung~\ref{fig: quarz_without_force_hist}) zu beobachten.
 Aus den Daten kann die Varianz $\langle x^2 \rangle \overset{\langle x \rangle = 0} = \langle x\rangle^2$ ermittelt werden
 \begin{equation}
-  \langle x^2 \rangle
+  \langle x^2 \rangle \approx \SI{4.1e-5}{\micro\meter\squared},\quad \langle y^2 \rangle \approx \SI{9.4e-4}{\micro\meter\squared}.
 \end{equation}
-Und hieraus unter Verwendung des Äquipartionstheorems ein Wert für die Boltzmannkonstante
+Und hieraus unter Verwendung des Äquipartionstheorems Werte für die Boltzmann-Konstante
 \begin{equation}
-k_b
+k_{B, x} \approx \SI{5.8e-26}{\joule\per\kelvin}, \quad k_{B, y} \approx \SI{1.8e-24}{\joule\per\kelvin}.
 \end{equation}
-Der seit diesem Jahr festgeegte Wert der Boltzmann-Konstante beträgt . Unabhängig von den Messungen unter Krafteinwirkung
-kann mit gegebener Boltzmann-Konstante die Fallensteifigkeit berechnet werden. Für $I = \SI{70}{\milli\ampere}$ ergibt sich
-exemplarisch
+
+Im Mittel aus allen Messreihen ergibt sich
 \begin{equation}
-
+  k_{B, mean} \approx \SI{39e-23}{\joule\per\kelvin}.
 \end{equation}
-Die Werte weichen deutlich von denen in~\eqref{} ab.
+Der seit diesem Jahr festgelegte Wert der Boltzmann-Konstante beträgt $\SI{1.380649e-23}{\joule\per\kelvin}$.
+\begin{figure}
+  \centering
+  \includegraphics[scale = 1 ]{../analysis/data/i_quarz/70mA/results/without_force_histogram_70mA.pdf}
+  \caption{Histogramme der Kugelpositionen aus der Messreihe in Abbildung~\ref{fig: quarz_without_force}.}
+  \label{fig: quarz_without_force_hist}
+\end{figure}
 
+\FloatBarrier
+Unabhängig von den Messungen ohne Krafteinwirkung
+kann mit den Messreihen mit Krafteinwirkung erneut die Fallensteifigkeit untersucht werden. Abbildung~\ref{ig: quarz_with_force} zeigt die
+Variation der Kugelpostion unter EInfluss einer periodischen Kraft (Amplitude $\SI{1}{\micro\meter}$, Frequenz
+$\SI{1}{\hertz}$) durch die Piezosteuerung des Probentisches. Unter Verwendung des Kräftegleichgewichts
+\begin{equation}
+  k x = \beta v
+\end{equation}
+kann mit $v = \SI{2}{\micro\meter\per\second}$ die Fallensteifigkeit berechnet werden. Das Ergebnis der
+Intensitätsabhängigen Messung ist in Abbildung~\ref{fig: quarz_k_power_series_force} dargestellt. Die Werte der Fallensteifigkeit sind in
+Tabelle~\ref{tab: quarz_result}
+eingetragen. Es zeigt sich eine deutliche Abweichung von einem linearen Anstieg. Auf eine weitere Analyse der Daten wird daher verzichtet.
+Auf die Gründe für die fehlerhafte Messung wird in Kapitel~\ref{sec: diskussion} eingegangen.
+\begin{figure}
+  \centering
+  \includegraphics[scale = 1]{../analysis/data/i_quarz/70mA/results/with_force_70mA.pdf}
+  \caption{Messreihe an den Quarzkugeln unter Einfluss einer äußeren Kraft zur Bestimmung der Fallensteifigkeit.  }
+  \label{fig: quarz_with_force}
+\end{figure}
+\begin{figure}
+  \centering
+  \includegraphics[scale = 1]{../analysis/data/i_quarz/k_power_series_force.pdf}
+  \caption{Messreihe an den Quarzkugeln zur Untersuchung der Abhängigkeit der Fallensteifigkeit von dem Pumpstrom des Diodenlasers
+  in $x$- und $y$-Richtung. Die Daten stammen aus der Messung mit Krafteinfluss. }
+  \label{fig: quarz_k_power_series_force}
+\end{figure}
+
+\input{../analysis/data/i_quarz/quarz_result_tab.tex}
+
+\FloatBarrier
+\newpage
 \subsection{Polysterenkugeln}
-Vollkommen analog zu der Auswertung aus dem vorangegenagen Abschnitt wird für die Polystrenkugeln vorgegangen.
-Abbildung~\ref{} zeigt die Leistungsabhängigkeit der Fallensteifigkeit. Im Mittel aaus allen
-Berechnungen wird für die Boltzmannkonstante der Wert
+Analog zu der Auswertung aus dem vorangegenagen Abschnitt wird für die Polysterenkugeln vorgegangen.
+Hier ist anzumerken, dass es hier, im Gegensatz zu den Messungen an den Quarzkugeln, gelungen ist, alle
+Messungen an der selben Kugel durchzuführen.
+
+Zum qualitativen Vergleich zwischen Quarz- und Polysteren-Probe ist für die
+Stromstärke $\SI{70}{\milli\ampere}$ eine Messreihe ohne (Abbildung~\ref{fig: poly_without_force}) und
+mit Krafteinwirkung (Abbildung~\ref{fig: poly_with_force}) dargestellt.
+\begin{figure}
+  \centering
+  \includegraphics[scale = 1]{../analysis/data/i_quarz/70mA/results/without_force_70mA.pdf}
+  \caption{Messreihe an den Polysterenkugeln zur Bestimmung der \emph{roll-off}-Frequenz aus der zeitlichen Variation der Kugelposition ohne Einwirkung einer äußeren Kraft.
+  (a) und (c) zeigen die Zeitserien für die $x$- bzw. $y$- Postion. (b) und (d) zeigen die berechneten spektralen Leistungsdichten und die Fits an das
+  Modell~\eqref{eq: lorentz}. Für den Fit wurden nur die grau hinterlegten Daten verwendet.}
+  \label{fig: poly_without_force}
+\end{figure}
+\begin{figure}
+  \centering
+  \includegraphics[scale = 1]{../analysis/data/ii_polysteren/70mA/results/with_force_70mA.pdf}
+  \caption{Messreihe an den Polysterenkugeln unter Einfluss einer äußeren Kraft zur Bestimmung der Fallensteifigkeit.}
+  \label{fig: poly_with_force}
+\end{figure}
+
+Abbildung~\ref{fig: poly_k_power} zeigt die Intensitätsabhängigkeit der Fallensteifigkeit aus der Messreihe ohne Krafteinwirkung,
+Abbildung~\ref{fig: poly_k_power_series_force} zeigt den Verluaf aus der Messreihe mit Krafteinwirkung. Ale Werte sind in Tabelle~\ref{tab: poly_result}
+eingetragen. Erneut ist ersichtlich, dass die Messung mit Krafteinwirkung keine Ergebnisse liefert.
+
+Im Mittel aus allen
+Messungen ohne Krafteinwirkung wird für die Boltzmann-Konstante der Wert
 \begin{equation}
-  k_b
+  k_B \approx \SI{6.1e-23}{\joule\per\kelvin}
 \end{equation}
 gefunden.
+
+\begin{figure}
+  \centering
+  \includegraphics[scale = 1]{../analysis/data/ii_polysteren/k_power_series.pdf}
+  \caption{Messreihe an den Polysterenkugeln zur Untersuchung der Abhängigkeit der Fallensteifigkeit von dem Pumpstrom des Diodenlasers
+  in $x$- und $y$-Richtung. Die Daten stammen aus der Messung ohne Krafteinfluss.}
+  \label{fig: poly_k_power}
+\end{figure}
+\begin{figure}
+  \centering
+  \includegraphics[scale = 1]{../analysis/data/ii_polysteren/k_power_series_force.pdf}
+  \caption{Messreihe an den Polysterenkugeln zur Untersuchung der Abhängigkeit der Fallensteifigkeit von dem Pumpstrom des Diodenlasers
+  in $x$- und $y$-Richtung. Die Daten stammen aus der Messung mit Krafteinfluss. }
+  \label{fig: poly_k_power_series_force}
+\end{figure}
+\input{../analysis/data/ii_polysteren/poly_result_tab.tex}
+\FloatBarrier
 
 \subsection{Zwiebelzellen}
