@@ -1,1 +1,65 @@
 \section{Auswertung}
+Im Folgenden werden die Messungen präsentiert und nötige Rechnungen durchgeführt. Zunächst
+werden die Kalibrierungen der lateralen Position vorgestellt, mit denen aus einem Spannungssignal der
+Viersegment Diode eine Position auf der Probe angegeben werden kann. Dies wird genutzt um anschließend
+aus den Messungen an den Quarzkugeln und Polysterenkugeln die Boltzmann-Konstante, sowie die leistungsabhängige
+Fallensteifigkeit zu bestimmen. Abschließend werden die Messungen und Beobachtungen an den Zwiebelzellen
+gezeigt.
+
+\subsection{Kalibrierung der lateralen Position}
+
+
+\subsection{Quarzkugeln}
+Die Messungen an den Quarzkugeln wurden für die Pumpstromstärken $\SI{70}{\milli\ampere}$, $\SI{170}{\milli\ampere}$,
+$\SI{270}{\milli\ampere}$, $\SI{370}{\milli\ampere}$ und $\SI{470}{\milli\ampere}$ durchgeführt. Da das Vorgehen der Auswertung
+jeweils völlig analog funktioniert, werden hier nur im Detail die Messungen für $I = \SI{70}{\milli\ampere}$ gezeigt.
+
+Abbildung~\ref{}~(a) und (c) zeigen die Kugelpositionen in $x$- und $y$-Richtung unter Einwirkung
+einer periodischen Kraft () durch die Piezosteuerung des Probentisches.
+Aus diesen Daten wird als Schätzer für die spektrale Leistungsdichte
+ein Periodogramm berechnet. Dies ist jeweils in den Abbildungen~\ref{}~(b) und (d) einzusehen. Die Kurven werden
+an eine Funktion der Gestalt
+\begin{equation}
+  PSD(f) = \frac{A}{f^2 + f_0^2}
+\end{equation}
+angepasst. Hierin ist $f_0$ die \emph{roll-off}-Frequenz. Es ergibt sich
+\begin{equation}
+  f_{0, \SI{70}{\milli\ampere}} \approx
+\end{equation}
+Aus dieser Frequenz kann gemäß
+\begin{equation}
+  k =
+\end{equation}
+die Fallensteifigkeit $k$ ermittelt werden. Abbildung~\ref{} zeigt die Abhängigkeit der Fallensteifigkeit von dem
+Pumpstrom $I$ und damit von der Laser-Intensität. Es ist ein linearer Trend zu erkennen, wobei der Datenpunkt $k_x$
+für $\SI{370}{\milli\ampere}$ deutlich ausreißt.
+
+In den Abbildungen~\ref{}~(a) und~(c) ist die Kugelposition als Funktion der Zeit ohne Krafteinwirkung dargestellt.
+Es ist sowohl in $x$- als auch in $y$-Richtung eine Asymmetrie in der Verteilung der Positionen mit der Zeit zu erkennen.
+Dies ist deutlicher in einer histogrammierten Ansicht (Abbildung~\ref{}~(b) und (c)) zu beobachten.
+Aus den Daten kann die Varianz $\langle x^2 \rangle \overset{\langle x \rangle = 0} = \langle x\rangle^2$ ermittelt werden
+\begin{equation}
+  \langle x^2 \rangle
+\end{equation}
+Und hieraus unter Verwendung des Äquipartionstheorems ein Wert für die Boltzmannkonstante
+\begin{equation}
+k_b
+\end{equation}
+Der seit diesem Jahr festgeegte Wert der Boltzmann-Konstante beträgt . Unabhängig von den Messungen unter Krafteinwirkung
+kann mit gegebener Boltzmann-Konstante die Fallensteifigkeit berechnet werden. Für $I = \SI{70}{\milli\ampere}$ ergibt sich
+exemplarisch
+\begin{equation}
+
+\end{equation}
+Die Werte weichen deutlich von denen in~\eqref{} ab.
+
+\subsection{Polysterenkugeln}
+Vollkommen analog zu der Auswertung aus dem vorangegenagen Abschnitt wird für die Polystrenkugeln vorgegangen.
+Abbildung~\ref{} zeigt die Leistungsabhängigkeit der Fallensteifigkeit. Im Mittel aaus allen
+Berechnungen wird für die Boltzmannkonstante der Wert
+\begin{equation}
+  k_b
+\end{equation}
+gefunden.
+
+\subsection{Zwiebelzellen}
