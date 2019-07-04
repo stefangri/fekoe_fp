@@ -94,7 +94,7 @@ Im Mittel aus allen Messreihen ergibt sich
 \begin{equation}
   k_{B, mean} \approx \SI{39e-23}{\joule\per\kelvin}.
 \end{equation}
-Der seit diesem Jahr festgelegte Wert der Boltzmann-Konstante beträgt $\SI{1.380649e-23}{\joule\per\kelvin}$.
+Der seit diesem Jahr festgelegte Wert der Boltzmann-Konstante beträgt nach~\cite{k_b} $\SI{1.380649e-23}{\joule\per\kelvin}$.
 \begin{figure}
   \centering
   \includegraphics[scale = 1 ]{../analysis/data/i_quarz/70mA/results/without_force_histogram_70mA.pdf}
@@ -104,8 +104,8 @@ Der seit diesem Jahr festgelegte Wert der Boltzmann-Konstante beträgt $\SI{1.38
 
 \FloatBarrier
 Unabhängig von den Messungen ohne Krafteinwirkung
-kann mit den Messreihen mit Krafteinwirkung erneut die Fallensteifigkeit untersucht werden. Abbildung~\ref{ig: quarz_with_force} zeigt die
-Variation der Kugelpostion unter EInfluss einer periodischen Kraft (Amplitude $\SI{1}{\micro\meter}$, Frequenz
+kann mit den Messreihen mit Krafteinwirkung erneut die Fallensteifigkeit untersucht werden. Abbildung~\ref{fig: quarz_with_force} zeigt die
+Variation der Kugelpostion unter Einfluss einer periodischen Kraft (Amplitude $\SI{1}{\micro\meter}$, Frequenz
 $\SI{1}{\hertz}$) durch die Piezosteuerung des Probentisches. Unter Verwendung des Kräftegleichgewichts
 \begin{equation}
   k x = \beta v
@@ -142,6 +142,20 @@ Messungen an der selben Kugel durchzuführen.
 Zum qualitativen Vergleich zwischen Quarz- und Polysteren-Probe ist für die
 Stromstärke $\SI{70}{\milli\ampere}$ eine Messreihe ohne (Abbildung~\ref{fig: poly_without_force}) und
 mit Krafteinwirkung (Abbildung~\ref{fig: poly_with_force}) dargestellt.
+Abbildung~\ref{fig: poly_k_power} zeigt die Intensitätsabhängigkeit der Fallensteifigkeit aus der Messreihe ohne Krafteinwirkung.
+Für die Steigungen gilt hier
+\begin{equation}
+  s_x \approx \SI{0.3e-7}{\newton \per \meter \per \milli\ampere}, \quad s_y \approx \SI{0.9e-7}{\newton \per \meter \per \milli\ampere}.
+\end{equation}
+Abbildung~\ref{fig: poly_k_power_series_force} zeigt den Verlauf aus der Messreihe mit Krafteinwirkung. Erneut ist ersichtlich, dass die Messung
+keine Ergebnisse liefert.
+Alle Werte für die Fallensteifigkeit
+sind in Tabelle~\ref{tab: poly_result} eingetragen.
+Im Mittel aus allen
+Messungen ohne Krafteinwirkung wird für die Boltzmann-Konstante folgender Wert gefunden
+\begin{equation}
+  k_B \approx \SI{6.1e-23}{\joule\per\kelvin}.
+\end{equation}
 \begin{figure}
   \centering
   \includegraphics[scale = 1]{../analysis/data/i_quarz/70mA/results/without_force_70mA.pdf}
@@ -157,16 +171,8 @@ mit Krafteinwirkung (Abbildung~\ref{fig: poly_with_force}) dargestellt.
   \label{fig: poly_with_force}
 \end{figure}
 
-Abbildung~\ref{fig: poly_k_power} zeigt die Intensitätsabhängigkeit der Fallensteifigkeit aus der Messreihe ohne Krafteinwirkung,
-Abbildung~\ref{fig: poly_k_power_series_force} zeigt den Verlauf aus der Messreihe mit Krafteinwirkung. Ale Werte sind in Tabelle~\ref{tab: poly_result}
-eingetragen. Erneut ist ersichtlich, dass die Messung mit Krafteinwirkung keine Ergebnisse liefert.
 
-Im Mittel aus allen
-Messungen ohne Krafteinwirkung wird für die Boltzmann-Konstante der Wert
-\begin{equation}
-  k_B \approx \SI{6.1e-23}{\joule\per\kelvin}
-\end{equation}
-gefunden.
+
 
 \begin{figure}
   \centering
@@ -202,7 +208,7 @@ beeinflussen lassen. Innerhalb einer Mikrofaser können einzelne Vesikel gefange
 Vesikel in der Faser hält (Video 3.avi oder 4.avi). ach einer Auslenkung bewegen sich die Fasern wieder in eine
 Ruhelage. Mit einem Laserstrom von $\SI{70}{\milli\ampere}$, was in etwa einer Fallensteifigkeit von
 $\SI{26.2e-7}{\newton\per\meter}$ entspricht ist es nicht möglich ein Vesikel aus der Faser zu lösen (Video 70mA.avi). Mit einem STrom
-von $\SI{170}{\milli\ampere}$ bzw. einer Fallensteifigkeit von $\SI{70e-7}{\newton\meter}$ gelingt dies (Video 170mA.avi).  
+von $\SI{170}{\milli\ampere}$ bzw. einer Fallensteifigkeit von $\SI{70e-7}{\newton\meter}$ gelingt dies (Video 170mA.avi).
 
 Abschließend soll die Geschwindigkeit der Vesikel bestimmt werden. Hierzu ist zunächst die Größe der Objekte relevant.
 In Abbildung~\ref{fig: vesikel_size} ist eine Kameraaufnahme mit mehreren Vesikeln zu sehen. Hieraus wurden die Radien in Pixeln
