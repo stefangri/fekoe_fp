@@ -1,0 +1,5 @@
+#boltzmann constant for laser power 70mA 
+kbx/J/K 	 5.827376577533828e-26 	 1.6805525589391087e-27 
+kby/J/K 	 1.846550666347501e-24 	 4.238732248043623e-26 
+kbx/J/Kforce 	 9.398644344474943e-26 	 0 
+kby/J/Kforce 	 1.0164778290158978e-24 	 0 

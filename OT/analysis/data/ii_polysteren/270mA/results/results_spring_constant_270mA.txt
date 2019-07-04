@@ -1,0 +1,5 @@
+#Spring constants for laser power 270mA 
+kx/N/m 	 5.301391155441113e-06 	 2.599171672876267e-07 
+ky/N/m 	 1.3770895342290886e-05 	 3.4268040272312545e-07 
+kx/N/mwithforce 	 -2.5807771221471714e-05 	 0 
+ky/N/mwithforce 	 -1.6962733035006115e-06 	 0 

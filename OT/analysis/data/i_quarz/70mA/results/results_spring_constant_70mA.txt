@@ -1,0 +1,5 @@
+#Spring constants for laser power 70mA 
+kx/N/m 	 4.180713966963532e-07 	 1.2056728206754114e-08 
+ky/N/m 	 5.744220159891683e-07 	 1.3185780209191999e-08 
+kx/N/mwithforce 	 6.742835847086819e-07 	 0 
+ky/N/mwithforce 	 3.162042907311832e-07 	 0 

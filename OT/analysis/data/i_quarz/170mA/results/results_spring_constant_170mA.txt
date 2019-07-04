@@ -1,0 +1,5 @@
+#Spring constants for laser power 170mA 
+kx/N/m 	 1.5457239237525165e-06 	 1.4917026241738087e-08 
+ky/N/m 	 2.107936115846447e-06 	 2.1001557646709943e-08 
+kx/N/mwithforce 	 -1.000528487209852e-06 	 0 
+ky/N/mwithforce 	 -9.536218202144351e-07 	 0 

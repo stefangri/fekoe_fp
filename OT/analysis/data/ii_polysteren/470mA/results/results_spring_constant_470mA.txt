@@ -1,0 +1,5 @@
+#Spring constants for laser power 470mA 
+kx/N/m 	 1.4839457307791847e-05 	 9.212643030279925e-07 
+ky/N/m 	 3.720303347378567e-05 	 1.0801380088711495e-06 
+kx/N/mwithforce 	 1.793366996881239e-05 	 0 
+ky/N/mwithforce 	 -2.9478660373352616e-07 	 0 

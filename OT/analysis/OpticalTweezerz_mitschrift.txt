@@ -1,0 +1,61 @@
+Versuch Optische Pinzette 27.06.2019
+
+Allgemeine Daten:
+
+Fokusposition:
+      z = 2.585 mm
+(ich glaube das ist schon wieder irrelevant)
+
+
+Versuchsteil i) (Normalbedinungen)
+Ein Ordner entspricht einer Leistung.
+Aufgenommen werden 2 MB Videos, sowie Zeitserien für die einzelnen Leistungen.
+
+Parameter in Screenshots in gleichem Ordner.
+
+Aufnahme der Leistungskalibration aus dem Force-Calibration Menü Screenshots und Frequenzy-Power Daten (PSD Parameter sind das wichtige)
+
+
+Auswertung i)
+
+Aus den Zeitserien kann die Varianz extrahiert werden. Bei bekannter Boltzmann-Konstante wird daraus mit Hilfe der Gleichung für das Äquipartitionstheorem die Fallensteifigkeit bestimmt.
+
+Berechnung der Geschwindigkeit über kx = beta v
+
+Beta und k sind Fitparameter.
+Geschwindigkeit v Ableitung von x.
+
+Diskussion i)
+
+Kugelwechsel weil mehrere Kugeln eingefangen.
+Bei höheren Leistungen Schwieriger keine weiteren Teilchen einzufangen.
+Position des Laserspots auf der Photodiode !!!
+
+
+KALIBRATIONSDATEN PASSEN NICHT ZU ZEITSERIEN
+aufgrund der Fokuus
+Versuchsteil ii)
+
+Kugeln Festpappen mit Debye abschirmung durch nacl ionen
+Aufnahme der Diodenvoltage vs x bzw y wert
+screenshots der fertigen messungen inklusive parameter da rohdatenspeicehrn nicht möglich
+
+Auswertung ii)
+fit an ansteigende x flanke und abfallende y flanke
+
+Diskussion ii)
+jetzt auch mit richtiger Spotposition
+Festpappung der Kugeln an oberfläche nich optimal
+
+Versuchsteil iii) (Polystyren)
+Fokus 3.220 mm
+
+Auswertung iii)
+
+Diskussion iii)
+Viele Teilchen in optischer Falle
+170 mA Laserposition auf diode
+Versuchsteil iv)
+
+
+Versuchsteil v)

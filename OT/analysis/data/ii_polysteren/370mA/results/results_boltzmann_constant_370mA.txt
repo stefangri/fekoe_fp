@@ -1,0 +1,5 @@
+#boltzmann constant for laser power 370mA 
+kbx/J/K 	 1.2263552689046154e-23 	 6.432361761193057e-25 
+kby/J/K 	 2.5124675214418887e-22 	 7.111335259302643e-24 
+kbx/J/Kforce 	 9.767941905665072e-24 	 0 
+kby/J/Kforce 	 -3.433155253818405e-23 	 0 
