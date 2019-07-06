@@ -1,22 +1,22 @@
 \setcounter{page}{1}
 \section*{Zielsetzung}
-Elektronen in Halbleiternanostrukturen, deren Abmessungen im $\si{\nano\meter}$ Bereich liegen,
+Elektronen in Halbleiternanostrukturen, deren Abmessungen im Nanometerbereich liegen,
 erfahren einen räumlichen Einschluss. In kolloidalen Nanokristallen erfolgt dieser Einschluss
 in allen drei Raumrichtungen, was zu rein diskreten Energiespektren führt, die von Atomen bekannt sind.
 Durch Einstellung der Größe und der chemischen Zusammensetzung lassen sich die opto-elektronischen
-Eigenschaften der Kristalle fast beliebig einstellen, was sie aus technischer Sicht extrem interessant macht.
+Eigenschaften der Kristalle fast beliebig einstellen, was sie aus technischer Sicht extrem interessant macht~\cite{dissArens}.
 Die räumliche Begrenzung der Elektronen-Wellenfunktionen führt zu einer ausgeprägten Lumineszenz, die
 in diesem Experiment untersucht werden soll.
 
 \section{Theorie}
 \label{sec:theo}
-Nachfolgend sollen zunächst einige theoretische Überlegungen zu Halbleiter-Nanokristallen vorgstellt werden, die
+Nachfolgend sollen zunächst einige theoretische Überlegungen zu Halbleiter-Nanokristallen vorgestellt werden, die
 zum Verständnis der durchgeführten Messungen notwendig sind. Es soll insbesondere motiviert werden, wie die
 Photolumineszenzspektren mit der Zusammensetzung und Größe der Nanopartikel zusammenhängen.
 
 \subsection{Photolumineszenz}
 Die Photolumineszenz an Halbleitern lässt sich im Bändermodell verstehen, siehe Abbildung~\ref{fig: pl}. Ein
-einfallendes Photon, dessen Energie die Bandlücke übersteigt ($h\nu > E_g$), regt ein Elektron aus dem
+einfallendes Photon, dessen Energie die der Bandlücke übersteigt ($h\nu > E_g$), regt ein Elektron aus dem
 Valenzband in das Leitungsband an.
 Durch Stöße relaxiert das Elektron sehr schnell in den $\Gamma$-Punkt ($k = 0$). Abschließend rekombinieren Elektron und Loch
 strahlend unter Aussendung eines Photons, dessen Energie $E_R$ (im Volumenhalbleiter) der Bandlücke $E_g$ entspricht.
@@ -54,7 +54,7 @@ anschließend im Quantentopf eingefangen werden.
 Das Spektrum der Elektronen bzw. Löcher,
 die sich innerhalb des Topfes befinden, lässt sich vereinfacht durch Lösung der Schrödingergleichung berechnen:
 \begin{equation}
-  \left[-\frac{\hbar^2}{2 m} \Delta^2 + V(\vec{r}) \right] \Psi(\vec{r}) = E \Psi(\vec{r}), \quad
+  \left[-\frac{\hbar^2}{2 m} \nabla^2 + V(\vec{r}) \right] \Psi(\vec{r}) = E \Psi(\vec{r}), \quad
   V(\vec{r}) = \begin{cases}
 0,& \quad r > a\\
 -V_0,& \quad r \leq a
@@ -78,8 +78,8 @@ Elektrons mit einem Loch im Grundzustand frei wird, gilt daher
 mit den effektiven Massen von Elektron und Loch $m_e^*$ und $m_h^*$
 
 Neben dem Potentialverlauf der Nanostruktur muss ebenfalls die Wechselwirkung zwischen Elektronen und Löchern berücksichtigt werden.
-Diese lässt sich durch das Exziton Modell beschreiben. Hierin werden Elektronen und Löcher wie freie Teilchen behandelt, die eine
-Coulomb-Anziegung aufeinander ausüben. Die Wechselwirkung mit der Umgebnung wird duch eine relative Permeabilität
+Diese lässt sich durch das Exziton-Modell beschreiben. Hierin werden Elektronen und Löcher wie freie Teilchen behandelt, die eine
+Coulomb-Anziehung aufeinander ausüben. Die Wechselwirkung mit der Umgebnung wird duch eine relative Permeabilität
 $\varepsilon_r$ moduliert. Es lassen sich so in Analogie zum Wasserstoffatom Bindungsenergien $E_m$ ($m \in N$) finden
 \begin{equation}
   E_m = \frac{\mu e^4}{2 (4\pi\varepsilon_0 \varepsilon_r \hbar)^2} \cdot \frac{1}{m^2},
@@ -95,19 +95,19 @@ Rekombinationsenergie im Grundzustand
   - \num{1.786} \frac{e^2}{4\pi\varepsilon_r\varepsilon_0 a}.
   \label{eq: E_R}
 \end{equation}
-Dieses Modell kann verwendet werden, um aus gemessenen Photolumineszenzspektren die Partikelgröße $a$ zu bestimmen.
+Dieses Modell kann verwendet werden, um aus gemessenen Photolumineszenzspektren den Durchmesser der Nanosphären $a$ zu bestimmen.
 
-Die Intensität des Photolumineszenzlichtes wird wesentlich durch die Intensität der anregenden Laserstrahlung beeinflusst.
-Dies geht damit einher, dass die Intensität des Photoluminszenzlichtes mit der Besetzungswahrscheinlichkeit der
+Die Intensität der Photolumineszenz wird wesentlich durch die Intensität der anregenden Laserstrahlung beeinflusst.
+Dies geht damit einher, dass die Intensität der Photoluminszenz mit der Besetzungswahrscheinlichkeit der
 Quantentrogzustände verknüpft ist. Diese Wahrscheinlichkeit steigt mit der anregenden Intensität (sprich mit der Zahl
 an Photonen, die zur Anregung beitragen können).
-Zudem steigt mit der anregenden Intensität auch die Wahrscheinlichkeit Rekombinationen aus angeregten Zuständen
+Zudem steigt mit der anregenden Intensität auch die Wahrscheinlichkeit, Rekombinationen aus angeregten Zuständen
 zu beobachten und mehr als ein Elektron-Loch-Paar
 in einem Quantentrog anzutreffen.
-Durch die gegenseitige Coulombwechselwirkung kann durch letzteres auch die
+Durch die gegenseitige Coulombwechselwirkung kann durch Letzteres auch die
 Rekombinationsenergie aus dem Grundzustand \eqref{eq: E_R} verschoben werden. Grundsätzlich würde dies dazu führen, dass
 mehrere Peaks im Spektrum zu erkennen sind. Da aber hier stets nur eine Mittlung über viele Nanokristalle vermessen wird,
 kann höchstens eine Variation in der Breite der auftretenden Peaks als Indiz für eine veränderte Wahrscheinlichkeit der
 Besetzung verschiedener Zustände beobachtet werden.
-Insgesamt sind also Änderungen in der Intensität, spektralen Breite und spektralen Position der Photoluminszenz-Peaks
+Insgesamt sind also Änderungen in der Intensität, spektralen Breite und spektralen Position der Photolumineszenz-Peaks
 unter Variation der anregenden Leistung zu erwarten.
