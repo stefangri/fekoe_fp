@@ -1006,78 +1006,6 @@
        y2="46.307293"
        gradientUnits="userSpaceOnUse"
        gradientTransform="translate(97.895837,19.843749)" />
-    <radialGradient
-       id="radialGradient4697"
-       cx="16.320299"
-       cy="19.061501"
-       r="17.222401"
-       fx="16.320299"
-       fy="19.061501"
-       gradientUnits="userSpaceOnUse">
-      <stop
-         offset="0"
-         style="stop-color:#FFFFFF"
-         id="stop4683" />
-      <stop
-         offset="1"
-         style="stop-color:#A0A0A0"
-         id="stop4685" />
-      <a:midPointStop
-         offset="0"
-         style="stop-color:#FFFFFF" />
-      <a:midPointStop
-         offset="0.5"
-         style="stop-color:#FFFFFF" />
-      <a:midPointStop
-         offset="1"
-         style="stop-color:#A0A0A0" />
-    </radialGradient>
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient4652"
-       id="linearGradient4673"
-       gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(0.2475,0.2475,-0.7071,0.7071,239.6396,3.4965)"
-       x1="-452.44464"
-       y1="180.5396"
-       x2="-452.45071"
-       y2="159.43579" />
-    <linearGradient
-       id="linearGradient4652"
-       gradientUnits="userSpaceOnUse"
-       x1="43.503399"
-       y1="101.6074"
-       x2="61.219398"
-       y2="83.891502"
-       gradientTransform="matrix(0.8,0,0,0.8,-34.4283,-62.4857)">
-      <stop
-         offset="0"
-         style="stop-color:#FFFFFF"
-         id="stop4615" />
-      <stop
-         offset="1"
-         style="stop-color:#89A4B6"
-         id="stop4617" />
-      <a:midPointStop
-         offset="0"
-         style="stop-color:#FFFFFF" />
-      <a:midPointStop
-         offset="0.5"
-         style="stop-color:#FFFFFF" />
-      <a:midPointStop
-         offset="1"
-         style="stop-color:#89A4B6" />
-    </linearGradient>
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#XMLID_4_"
-       id="linearGradient4675"
-       gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(-0.8,0,0,-0.8,-254.9407,-236.2836)"
-       x1="-336.39462"
-       y1="-324.6395"
-       x2="-336.39462"
-       y2="-295.35449" />
   </defs>
   <sodipodi:namedview
      id="base"
@@ -1087,14 +1015,14 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.979899"
-     inkscape:cx="495.61502"
+     inkscape:cx="301.66574"
      inkscape:cy="867.77666"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="true"
-     inkscape:window-width="2400"
-     inkscape:window-height="1271"
-     inkscape:window-x="2391"
+     inkscape:window-width="1920"
+     inkscape:window-height="1001"
+     inkscape:window-x="-9"
      inkscape:window-y="-9"
      inkscape:window-maximized="1">
     <inkscape:grid
@@ -1867,18 +1795,6 @@
          x="144.19792"
          y="41.677082"
          style="stroke-width:0.26458332">Spektrometer</tspan></text>
-    <path
-       inkscape:connector-curvature="0"
-       style="display:inline;fill:none;stroke:#ff0000;stroke-width:0.3702606;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;enable-background:new"
-       d="m 109.89707,65.489583 9.16543,-5.291666"
-       id="path7452-4-8-0"
-       sodipodi:nodetypes="cc" />
-    <path
-       inkscape:connector-curvature="0"
-       style="display:inline;fill:none;stroke:#ff0000;stroke-width:0.3702606;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;enable-background:new"
-       d="m 109.80208,65.489583 9.16543,5.291666"
-       id="path7452-4-8-0-2"
-       sodipodi:nodetypes="cc" />
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:2.82222223px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
@@ -2852,131 +2768,17 @@
        d="m 119.06251,58.875 v 10.583333 l 1.32291,3.96875 V 62.84375 Z"
        id="path1228-5"
        inkscape:connector-curvature="0" />
-    <g
-       style="display:inline;opacity:1;enable-background:new"
-       id="g4612"
-       transform="matrix(0.26458333,0,0,0.26458333,79.495121,62.413273)">
-      <linearGradient
-         id="linearGradient6863"
-         gradientUnits="userSpaceOnUse"
-         x1="43.503399"
-         y1="101.6074"
-         x2="61.219398"
-         y2="83.891502"
-         gradientTransform="matrix(0.8,0,0,0.8,-34.4283,-62.4857)">
-        <stop
-           offset="0"
-           style="stop-color:#FFFFFF"
-           id="stop6859" />
-        <stop
-           offset="1"
-           style="stop-color:#89A4B6"
-           id="stop6861" />
-        <a:midPointStop
-           offset="0"
-           style="stop-color:#FFFFFF" />
-        <a:midPointStop
-           offset="0.5"
-           style="stop-color:#FFFFFF" />
-        <a:midPointStop
-           offset="1"
-           style="stop-color:#89A4B6" />
-      </linearGradient>
-      <rect
-         style="fill:url(#linearGradient4673);fill-opacity:1;stroke:#000000;stroke-width:0.75"
-         x="0.375"
-         y="4.6269999"
-         i:knockout="Off"
-         width="14.171"
-         height="14.174"
-         id="rect4619" />
-      <line
-         style="fill:none;stroke:#000000;stroke-width:0.75"
-         i:knockout="Off"
-         x1="0.375"
-         y1="4.6269999"
-         x2="14.546"
-         y2="18.801001"
-         id="line4621" />
-      <linearGradient
-         id="linearGradient4658"
-         gradientUnits="userSpaceOnUse"
-         x1="75.393097"
-         y1="106.9209"
-         x2="75.393097"
-         y2="78.574203"
-         gradientTransform="matrix(0.8,0,0,0.8,-34.4283,-62.4857)">
-        <stop
-           offset="0"
-           style="stop-color:#FFFFFF"
-           id="stop4660" />
-        <stop
-           offset="0.1314"
-           style="stop-color:#C4C4C4"
-           id="stop4662" />
-        <stop
-           offset="0.3752"
-           style="stop-color:#5C5C5C"
-           id="stop4664" />
-        <stop
-           offset="0.5444"
-           style="stop-color:#1A1A1A"
-           id="stop4630" />
-        <stop
-           offset="0.6236"
-           style="stop-color:#000000"
-           id="stop4632" />
-        <stop
-           offset="0.6657"
-           style="stop-color:#151515"
-           id="stop4634" />
-        <stop
-           offset="0.7529"
-           style="stop-color:#4C4C4C"
-           id="stop4636" />
-        <stop
-           offset="0.8765"
-           style="stop-color:#A2A2A2"
-           id="stop4638" />
-        <stop
-           offset="1"
-           style="stop-color:#FFFFFF"
-           id="stop4640" />
-        <a:midPointStop
-           offset="0"
-           style="stop-color:#FFFFFF" />
-        <a:midPointStop
-           offset="0.4636"
-           style="stop-color:#FFFFFF" />
-        <a:midPointStop
-           offset="0.6236"
-           style="stop-color:#000000" />
-        <a:midPointStop
-           offset="0.5441"
-           style="stop-color:#000000" />
-        <a:midPointStop
-           offset="1"
-           style="stop-color:#FFFFFF" />
-      </linearGradient>
-      <rect
-         style="fill:url(#linearGradient4675);stroke:#000000;stroke-width:0.75"
-         x="14.55"
-         y="0.375"
-         i:knockout="Off"
-         width="22.676001"
-         height="22.677999"
-         id="rect4642" />
-    </g>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:2.82222223px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-       x="76.969574"
-       y="71.422562"
-       id="text2672"><tspan
-         sodipodi:role="line"
-         id="tspan2670"
-         x="76.969574"
-         y="71.422562"
-         style="stroke-width:0.26458332">Polarisator</tspan></text>
+    <path
+       inkscape:connector-curvature="0"
+       style="display:inline;fill:none;stroke:#ff0000;stroke-width:0.44198513;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;enable-background:new"
+       d="m 109.80208,62.84375 9.26041,2.64583"
+       id="path7452-4-8-0-2-9-7"
+       sodipodi:nodetypes="cc" />
+    <path
+       inkscape:connector-curvature="0"
+       style="display:inline;fill:none;stroke:#ff0000;stroke-width:0.44198513;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;enable-background:new"
+       d="m 109.80208,68.135417 9.26041,-2.64583"
+       id="path7452-4-8-0-2-9-7-4"
+       sodipodi:nodetypes="cc" />
   </g>
 </svg>
