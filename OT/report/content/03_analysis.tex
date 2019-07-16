@@ -10,7 +10,15 @@ gezeigt.
 Die Daten der Kalibrierung der lateralen Position konnten nicht aus der Thorlabs-Software extrahiert werden. Zwei
 Kurven für den Verlauf der Diodenspannung beim räumlichen Scan über eine fixierte Quarzkugel sind in Abbildung~\ref{fig: calibration}
 in einem Screenshot einzusehen. Anhand der grün eingefärbten linearen Regressionen an die Daten kann für alle Stromstärken eine
-Umrechnung zwischen Spannung und Position ermittelt werden. Die einzelnen Umrechnungsfaktoren sind in Tabelle~\ref{tab: zcalibration} aufgeführt.
+Umrechnung zwischen Spannung und Position ermittelt werden. Die einzelnen Umrechnungsfaktoren sind in Tabelle~\ref{tab: zcalibration}
+aufgeführt.
+
+Es fällt eine deutliche Korrelation zwischen Pumpstrom und den Steigungen auf. Beide Steigungen fallen
+im Betrag mit steigendem Strom und daher mit steigender Fallensteifigkeit.
+Dies lässt sich anschaulich
+damit erklären, dass mit großer Fallensteifigkeit die Kugel während des Überfahrens mit dem Laserstrahl
+aus der fixierten Position ausgelenkt wird. Dadurch wird effektiv über eine weitere Strecke
+der Probenposition eine Auslenkung auf der Diode beobachtet (kleinere Steigung).
 
 \begin{figure}
   \centering
@@ -40,7 +48,8 @@ konnte, da weitere Quarzkugeln in die Falle eingefangen wurden.
 
 Abbildung~\ref{fig: quarz_without_force}~(a) und (c) zeigen die Kugelpositionen in $x$- und $y$-Richtung ohne Einwirkung
 einer Kraft. %(Amplitude $\SI{1}{\micro\meter}$, Frequenz $\SI{1}{\hertz}$) durch die Piezosteuerung des Probentisches.
-Aus diesen Daten wird als Schätzer für die spektrale Leistungsdichte
+Die Zeitachse kann aus der eingestellten Datenrate von $\SI{10000}{\per\second}$ berechnet werden.
+Aus diesen Daten wird als Schätzer für die spektrale Leistungsdichte (engl. power spectral density, PSD)
 ein Periodogramm berechnet. Dies ist jeweils in den Abbildungen~\ref{fig: quarz_without_force}~(b) und (d) einzusehen. Die Kurven werden
 an eine Funktion der Gestalt
 \begin{equation}
@@ -94,7 +103,9 @@ Im Mittel aus allen Messreihen ergibt sich
 \begin{equation}
   k_{B, mean} \approx \SI{39e-23}{\joule\per\kelvin}.
 \end{equation}
-Der seit diesem Jahr festgelegte Wert der Boltzmann-Konstante beträgt nach~\cite{k_b} $\SI{1.380649e-23}{\joule\per\kelvin}$.
+Der seit diesem Jahr festgelegte Wert der Boltzmann-Konstante beträgt nach~\cite{k_b}\\ $\SI{1.380649e-23}{\joule\per\kelvin}$.
+Der ermittelte Wert ist somit um einen Faktor von ca. $\num{28}$ zu groß. Auf generelle Probleme dieses Versuchsteils, die
+den abweichenden Wert erklären, wird in der Diskussion eingegangen.
 \begin{figure}
   \centering
   \includegraphics[scale = 1 ]{../analysis/data/i_quarz/70mA/results/without_force_histogram_70mA.pdf}
@@ -151,8 +162,7 @@ Abbildung~\ref{fig: poly_k_power_series_force} zeigt den Verlauf aus der Messrei
 keine Ergebnisse liefert.
 Alle Werte für die Fallensteifigkeit
 sind in Tabelle~\ref{tab: poly_result} eingetragen.
-Im Mittel aus allen
-Messungen ohne Krafteinwirkung wird für die Boltzmann-Konstante folgender Wert gefunden
+Der Mittelwert für die Boltzmann-Konstante wird aus allen Messungen ohne Krafteinwirkung gefunden
 \begin{equation}
   k_B \approx \SI{6.1e-23}{\joule\per\kelvin}.
 \end{equation}
@@ -194,7 +204,7 @@ Messungen ohne Krafteinwirkung wird für die Boltzmann-Konstante folgender Wert 
 \subsection{Zwiebelzellen}
 Nachfolgend werden die Beobachtungen an den Zwiebelzellen vorgestellt. Hierbei wird mehrfach auf Videos aus dem Anhang
 verwiesen. Abbildung~\ref{fig: zwiebelzelle} zeigt zunächst eine exemplarische Aufnahme der Zwiebelzelle mit der CMOS-Kamera.
-Mittig des Bildes sind die Vesikel innerhalb einer Mikrofaser deutlich zu erkennen.
+Mittig des Bildes sind die Vesikel innerhalb einer Aktin-Mikrofasern deutlich zu erkennen.
 \begin{figure}
   \centering
   \includegraphics[width = 0.4\textwidth]{../analysis/data/iii_zwiebel/bilder/1.png}
@@ -203,23 +213,24 @@ Mittig des Bildes sind die Vesikel innerhalb einer Mikrofaser deutlich zu erkenn
 \end{figure}
 
 In dem Video 1.avi im Zwiebel-Anhang lässt sich beobachten, dass die Strukturen innerhalb der Zelle mit der optischen Pinzette
-beeinflussen lassen. Innerhalb einer Mikrofaser können einzelne Vesikel gefangen werden und durch die Faser transportiert werden
+beeinflussen lassen. Innerhalb einer Aktin-Mikrofaser können einzelne Vesikel gefangen werden und durch die Faser transportiert werden
 (siehe Video 2.avi). Hierbei ist zu bobachten, dass die Kraft durch die Falle teilweise schwächer ist als die Kraft, die die
 Vesikel in der Faser hält (Video 3.avi oder 4.avi). ach einer Auslenkung bewegen sich die Fasern wieder in eine
 Ruhelage. Mit einem Laserstrom von $\SI{70}{\milli\ampere}$, was in etwa einer Fallensteifigkeit von
-$\SI{26.2e-7}{\newton\per\meter}$ entspricht ist es nicht möglich ein Vesikel aus der Faser zu lösen (Video 70mA.avi). Mit einem STrom
+$\SI{26.2e-7}{\newton\per\meter}$ entspricht ist es nicht möglich ein Vesikel aus der Faser zu lösen (Video 70mA.avi). Mit einem Strom
 von $\SI{170}{\milli\ampere}$ bzw. einer Fallensteifigkeit von $\SI{70e-7}{\newton\meter}$ gelingt dies (Video 170mA.avi).
 
 Abschließend soll die Geschwindigkeit der Vesikel bestimmt werden. Hierzu ist zunächst die Größe der Objekte relevant.
 In Abbildung~\ref{fig: vesikel_size} ist eine Kameraaufnahme mit mehreren Vesikeln zu sehen. Hieraus wurden die Radien in Pixeln
 bestimmt (siehe rote Kreise in der Abbildung). Im Mittel haben die Vesikel einen Radius von $\num{11.2}$ Pixeln. Im Vergleich hierzu haben die Quarzkugeln (siehe etwa
-Abbildung~\ref{fig: quarz_screenshot}) einen Radius von ca. $\num{24.2}$ Pixeln. Aus der Kenntnis der Quarzkugelgöße von ca. $\SI{2}{\micro\meter}$
+Abbildung~\ref{fig: quarz_screenshot}) einen Radius von ca. $\num{24.2}$ Pixeln.
+Aus der Kenntnis der Quarzkugelgöße von ca. $\SI{2}{\micro\meter}$
 wird somit die Vesikelgröße zu
 \begin{equation}
 d_{\text{Vesikel}} \approx \SI{0.9}{\micro\meter}
 \end{equation}
 abgeschätzt.
-Abbildung~\ref{fig: velocity} zeigt den Verlauf einer Messung währen sich ein Vesikel durh den Laserstrahl bewegt hat. Die temporäre
+Abbildung~\ref{fig: velocity} zeigt den Verlauf einer Messung während sich ein Vesikel durch den Laserstrahl bewegt hat. Die temporäre
 Auslenkung aus einem konstanten Wert ist deutlich zu erkennen. Aus dem Vesikeldurchmesser und dem zeitlichen Abstand der beiden vertikalen
 Linien in Abbildung~\ref{fig: velocity} wird die Geschwindigeit berechnet
 \begin{equation}
