@@ -26,12 +26,12 @@ Für Teilchen, deren Größe deutlich kleiner als die Wellenlänge ist, ist die 
 mit der Lichtgeschwindigkeit im Vakuum $c$, der Intensität $I_0$ und dem Brechungsindex des Mediums $n_m$ beschrieben.
 Der Streuquerschnitt $\sigma$ für die Streuung von Licht der Wellenlänge $\lambda$ ist gegeben durch
 \begin{equation}
-  \sigma = \frac{128 \pi^5 a^6}{3\lambda} \left(\frac{m^2-1}{m^2+2}\right)^2 \, .
+  \sigma = \frac{128 \pi^5 a^6}{3\lambda^4} \left(\frac{m^2-1}{m^2+2}\right)^2 \, .
 \end{equation}
 Dabei ist $m$ das Verhältnis der Brechungsindizes von Medium und Sphäre.\\
 Die Gradientenkraft wird in der Rayleigh Theorie durch die Wechselwirkung eines inhomogenen Lichtfeldes mit dem Dipol beschrieben und zeigt für ein Brechungsindexverhältnis $m>1$ in Richtung des Intensitätsgradienten $\nabla I_0$. \cite{anleitung} Die Gradientenkraft ist mithilfe der Polarisierbarkeit $\alpha$ gegeben durch
 \begin{equation}
-  F_{\text{grad}} = \frac{2\pi\alpha}{cn_m}\nabla I_0 \,\,\,\,\,\,\, \text{mit} \,\,\,\,\,\,\, \alpha = n_m^2a^3\frac{m^2-1}{m^2+2}\,\,.
+  F_{\text{grad}} = \frac{2\pi\alpha}{cn^2_m}\nabla I_0 \,\,\,\,\,\,\, \text{mit} \,\,\,\,\,\,\, \alpha = n_m^2a^3\frac{m^2-1}{m^2+2}\,\,.
 \end{equation}
 
 \subsection{Der Zusammenhang von Boltzmannkonstante und Fallensteifigkeit}
@@ -42,7 +42,7 @@ Der Zusammenhang zwischen der kinetischen Energie des Teilchensystems und dem zu
 \end{equation}
 gegeben, welche einem $n$-Teilchensystem der Temperatur $T$ in einem Volumen einen makroskopischen Druck zuordnet.
 Die dabei auftretende Proportionalitätskonstante ist die Boltzmannkonstante $k_B$, die die Temperatur mit der kinetischen Energie der Teilchen in Beziehung setzt.\\
-Da Messgrößen wie die Teilchenzahl eines Gases experimentell nicht zugänglich sind, muss um die Boltzmannkonstante zu messen ein anderer Ansatz gewählt werden. Dieser basiert auf den durch Stöße der Teilchen im Gaß auftretenden Kraftfluktuationen $\langle x \rangle ^2$ und dem Äquipartitionstheorem. Diese Stöße finden zufällig statt und erzeugen die Brownsche Zitterbewegung von Teilchen in einem Umgebungsmedium. Das Theorem besagt, dass auf ein Teilchen im thermischen Gleichgewicht pro Freiheitsgrad die Energie $\frac{1}{2}\k_B T$ entfällt. Außerdem ist die kinetische Energie für ein einzelnes Teilchen in einem harmonischen Potential durch $\frac{1}{2} k \langle x \rangle^2$ festgelegt. Aus dem Gleichsetzen der beiden Terme
+Da Messgrößen wie die Teilchenzahl eines Gases experimentell nicht zugänglich sind, muss um die Boltzmannkonstante zu messen ein anderer Ansatz gewählt werden. Dieser basiert auf den durch Stöße der Teilchen im Gas auftretenden Kraftfluktuationen $\langle x \rangle ^2$ und dem Äquipartitionstheorem. Diese Stöße finden zufällig statt und erzeugen die Brownsche Zitterbewegung von Teilchen in einem Umgebungsmedium. Das Theorem besagt, dass auf ein Teilchen im thermischen Gleichgewicht pro Freiheitsgrad die Energie $\frac{1}{2}k_B T$ entfällt. Außerdem ist die kinetische Energie für ein einzelnes Teilchen in einem harmonischen Potential durch $\frac{1}{2} k \langle x \rangle^2$ festgelegt. Aus dem Gleichsetzen der beiden Terme
 folgt
 \begin{equation}
   \frac{1}{2}k_B T = \frac{1}{2} k \langle x \rangle^2 \,\,.
@@ -60,7 +60,7 @@ Das Leistungsspektrum der Bewegung ergibt sich über das Wiener-Khinchin-Theorem
 \begin{equation}
   S_{xx} = \sqrt{\frac{k_B T}{\pi^2\beta ( f^2 + f_0^2)}}\, .
 \end{equation}
-Dabei beinhaltet die \textit{Roll-Off-Frequenz} $f_0 = k / 2\pi\beta$ die Fallensteifigkeit $k$ der optischen Falle. \cite{MIT}\cite{Brown}\\
+Dabei beinhaltet die \textit{Roll-Off-Frequenz} $f_0 = k / 2\pi\beta$ die Fallensteifigkeit $k$ der optischen Falle. \cite{MIT}\cite{Brown} In einem doppelt logarithmischen Plot kennzeichnet die \textit{Roll-Off-Frequenz} den Übergang vom konstanten zu einem linear abfallenden Zusammenhang. \\
 
 \subsection{Anwendungen in der Mikrobiologie}
 Mithilfe der optischen Pinzette lassen sich auch biologische Vorgänge analysieren. So zum Beispiel die Bewegung von Vesikeln durch Aktin-Myosin Filamente in einer Zwiebelzelle. Bei Vesikeln handelt es sich um Bläschen mit einer Größe von ungefähr $1 \si{\micro\meter}$, deren Außenwand aus Proteinverbindungen bestehen. Die Vesikeln dienen in der Zelle als Transportgefäße für unterschiedliche Stoffe und bewegen sich durch feine Aktin Kanäle. In diesen Kanälen werden die Vesikeln durch Myosin-Motorproteine fortbewegt. Ein Schema des Aufbaus eines Aktin-Myosin Kanals ist in Abbildung \ref{fig:aktin} zu sehen.
@@ -70,4 +70,4 @@ Mithilfe der optischen Pinzette lassen sich auch biologische Vorgänge analysier
   \caption{Schemazeichnung der Bewegung eines Vesikels durch einen Aktin-Myosin Kanal. \cite{anleitung}}
   \label{fig:aktin}
 \end{figure}
-Die Geschwindigkeit der Bewegung, sowie die Reißfestigkeit der Aktin-Filamente kann mithilfe einer optischen Pinzette untersucht werden. \cite{anleitung}
+Die Geschwindigkeit der Vesikelbewegung, sowie die Stabilität der Myosinbindung der Vesikel an die Aktin-Filamente, kann mithilfe einer optischen Pinzette untersucht werden. \cite{anleitung}
